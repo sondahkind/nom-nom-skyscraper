@@ -15,3 +15,10 @@ tile_data = PoolIntArray( -458745, 2, 0, -393210, 2, 0, -393209, 2, 0, -393208, 
 script = ExtResource( 2 )
 
 [node name="GameLogic" type="Node" parent="."]
+
+[node name="NextPhase" type="Button" parent="."]
+margin_right = 566.0
+margin_bottom = 114.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

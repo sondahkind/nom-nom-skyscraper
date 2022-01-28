@@ -5,11 +5,11 @@ extends Node
 # var a = 2
 # var b = "text"
 var buttonLabel = "Placeholder"
-var currentPhase = ""
+var currentPhase = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currentPhase = "setup_phase"
+	currentPhase = 0
 	phase_manager()
 
 
@@ -19,31 +19,58 @@ func _ready():
 #	pass
 
 func phase_manager():
-	if (currentPhase == "setup_phase"):
+	if (currentPhase == 0):
 		setup_phase()
-	if (currentPhase == "draw_phase"):
+	if (currentPhase == 1):
+		setup_end_phase()
+	if (currentPhase == 2):
 		draw_phase()
-	if (currentPhase == "play_card_phase"):
+	if (currentPhase == 3):
+		draw_end_phase()
+	if (currentPhase == 4):
 		play_card_phase()
-	if (currentPhase == "calculation_phase"):
+	if (currentPhase == 5):
+		play_end_card_phase()
+	if (currentPhase == 6):
 		calculation_phase()
+	if (currentPhase == 7):
+		calculation_end_phase()
+
+# -------------------------------------PHASES-------------------------------------
 
 func setup_phase():
 	$CurrentPhaseLabel.set_text("setup_phase")
-	pass
+	
+func setup_end_phase():
+	$CurrentPhaseLabel.set_text("setup_end_phase")
 
 func draw_phase():
-	$CurrentPhaseLabel.set_text("calculation_phase")
+	$CurrentPhaseLabel.set_text("draw_phase")
 	draw_cards(1)
-	pass
+
+func draw_end_phase():
+	$CurrentPhaseLabel.set_text("draw_end_phase")
+	draw_cards(1)	
 
 func play_card_phase():
-	$CurrentPhaseLabel.set_text("calculation_phase")
-	pass 
+	$CurrentPhaseLabel.set_text("play_card_phase")
+
+func play_end_card_phase():
+	$CurrentPhaseLabel.set_text("play_end_card_phase")
 
 func calculation_phase():
 	$CurrentPhaseLabel.set_text("calculation_phase")
-	pass
+
+func calculation_end_phase():
+	$CurrentPhaseLabel.set_text("calculation_end_phase")
+
+# --------------------------------------------------------------------------
+
+func next_phase():
+	if (currentPhase <=7):
+		currentPhase = currentPhase + 1
+	else:
+		currentPhase = 0
 
 func draw_cards(numberOfCards):
 	pass
