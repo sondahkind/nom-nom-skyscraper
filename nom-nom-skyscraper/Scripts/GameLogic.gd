@@ -6,6 +6,7 @@ extends Node
 # var b = "text"
 var buttonLabel = "Placeholder"
 var currentPhase = 0
+var is_in_phase = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,49 +22,59 @@ func _process(delta):
 	pass
 
 func phase_manager():
-	if (currentPhase == 0):
-		setup_phase()
-	if (currentPhase == 1):
-		setup_end_phase()
-	if (currentPhase == 2):
-		draw_phase()
-	if (currentPhase == 3):
-		draw_end_phase()
-	if (currentPhase == 4):
-		play_card_phase()
-	if (currentPhase == 5):
-		play_end_card_phase()
-	if (currentPhase == 6):
-		calculation_phase()
-	if (currentPhase == 7):
-		calculation_end_phase()
+	if (is_in_phase != true):
+		print("is in phase manager")
+		if (currentPhase == 0):
+			setup_phase()
+		if (currentPhase == 1):
+			setup_end_phase()
+		if (currentPhase == 2):
+			draw_phase()
+		if (currentPhase == 3):
+			draw_end_phase()
+		if (currentPhase == 4):
+			play_card_phase()
+		if (currentPhase == 5):
+			play_end_card_phase()
+		if (currentPhase == 6):
+			calculation_phase()
+		if (currentPhase == 7):
+			calculation_end_phase()
 
 # -------------------------------------PHASES-------------------------------------
 
 func setup_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("setup_phase")
 	
 func setup_end_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("setup_end_phase")
 
 func draw_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("draw_phase")
 	draw_cards(1)
 
 func draw_end_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("draw_end_phase")
 	draw_cards(1)	
 
 func play_card_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("play_card_phase")
 
 func play_end_card_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("play_end_card_phase")
 
 func calculation_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("calculation_phase")
 
 func calculation_end_phase():
+	is_in_phase = true
 	$CurrentPhaseLabel.set_text("calculation_end_phase")
 
 # --------------------------------------------------------------------------
@@ -73,6 +84,7 @@ func next_phase():
 		currentPhase = currentPhase + 1
 	else:
 		currentPhase = 0
+	is_in_phase = false
 
 func draw_cards(numberOfCards):
 	pass
