@@ -23,7 +23,6 @@ func _process(delta):
 
 func phase_manager():
 	if (is_in_phase != true):
-		print("is in phase manager")
 		if (currentPhase == 0):
 			setup_phase()
 		if (currentPhase == 1):
