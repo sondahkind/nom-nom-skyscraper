@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>700</x>
+      <y>130</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Feld Manager
+--
+Alles was mit den Feldern
+zu tun hat
+
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>300</x>
+      <y>350</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Karte Manager
+--
+Welche Karten zieht man
+Beinflussen was man zieht
+
+
+-.
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>310</x>
+      <y>140</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Main Game Logic
+--
+Turn Order
+Card Draw
+
+
+-.
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>170</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Gibt Anstoß zum Info Update</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>240</y>
+      <w>210</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Gibt Anstoß zum Info Update</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>230</y>
+      <w>310</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Hängen Karte an Feld</panel_attributes>
+    <additional_attributes>10.0;170.0;290.0;170.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>970</x>
+      <y>130</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Kamera
+--
+
+
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>970</x>
+      <y>310</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>UI Steuerung
+--
+
+
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
