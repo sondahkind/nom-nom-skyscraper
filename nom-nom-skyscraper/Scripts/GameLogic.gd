@@ -15,8 +15,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	# get_node("CurrentPhaseLabel").text = "pre_phase"
+	phase_manager()
+	pass
 
 func phase_manager():
 	if (currentPhase == 0):
