@@ -1,7 +1,6 @@
 extends Object
 
 class Card:
-
 	var card_name = "no_name"
 	var card_image = "res://Assets/Cards/card_nature_tree.png"
 	var sprite
@@ -20,9 +19,11 @@ class Card:
 	func display_card(drawing_node):
 		if (drawing_node.get_child_count() > 0):
 			drawing_node.remove_child(drawing_node.get_child(0))
-
+		drawing_node.disabled = false
 		sprite = Sprite.new()
 		sprite.texture = load(card_image)
 		sprite.scale = Vector2(0.35, 0.35)
+		sprite.position.x = 167
+		sprite.position.y = 227
 		drawing_node.add_child(sprite)
 

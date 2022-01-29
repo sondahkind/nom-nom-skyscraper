@@ -34,5 +34,11 @@ class CardManager:
 			card.display_card(drawing_node.get_child(x))
 			x = x+1
 
+	func clear_cards(drawing_node):
+		var x=0
+		for card in hand_cards:
+			card.hide(drawing_node.get_child(x))
+			x = x+1
+
 	func get_hand_size():
 		return hand_cards.size()

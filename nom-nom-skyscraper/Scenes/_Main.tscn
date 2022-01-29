@@ -5,12 +5,13 @@
 [ext_resource path="res://Scripts/NextPhaseButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/FieldManager.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/map/Toppings.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Toppings.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/CardPrefab.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 99
 
 [node name="NextPhaseButton" type="Button" parent="UI"]
 margin_right = 251.0
@@ -21,35 +22,36 @@ __meta__ = {
 }
 
 [node name="CardHand" type="CanvasLayer" parent="UI"]
+layer = 99
 
 [node name="Card1" parent="UI/CardHand" instance=ExtResource( 7 )]
-margin_left = 123.0
-margin_top = 471.0
-margin_right = 457.0
-margin_bottom = 925.0
+margin_left = 203.0
+margin_top = 475.0
+margin_right = 537.0
+margin_bottom = 929.0
 disabled = true
 
 [node name="Card2" parent="UI/CardHand" instance=ExtResource( 7 )]
-margin_left = 500.0
-margin_top = 471.0
-margin_right = 834.0
-margin_bottom = 925.0
+margin_left = 589.0
+margin_top = 475.0
+margin_right = 923.0
+margin_bottom = 929.0
 disabled = true
 cardNr = 1
 
 [node name="Card3" parent="UI/CardHand" instance=ExtResource( 7 )]
-margin_left = 876.0
+margin_left = 983.0
 margin_top = 471.0
-margin_right = 1210.0
+margin_right = 1317.0
 margin_bottom = 925.0
 disabled = true
 cardNr = 2
 
 [node name="Card4" parent="UI/CardHand" instance=ExtResource( 7 )]
-margin_left = 1267.0
-margin_top = 471.0
-margin_right = 1601.0
-margin_bottom = 925.0
+margin_left = 1386.0
+margin_top = 484.0
+margin_right = 1720.0
+margin_bottom = 938.0
 disabled = true
 cardNr = 3
 
