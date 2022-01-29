@@ -28,5 +28,7 @@ class CardManager:
 				print(card.card_name)
 
 	func display_cards(drawing_node):
+		var x=0
 		for card in hand_cards:
-			card.display_card(drawing_node)
+			card.display_card(drawing_node.get_child(x))
+			x = x+1
