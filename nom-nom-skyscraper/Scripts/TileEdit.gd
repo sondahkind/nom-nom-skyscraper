@@ -1,6 +1,8 @@
 extends TileMap
 
 var select = preload("res://Scenes/Select.tscn").instance()
+var sprite
+
 
 var game_logic
 var field_manager
@@ -23,6 +25,7 @@ func _ready():
 				field_manager.create_field(Vector2(x, y))
 
 func _unhandled_input(event):
+
 	if game_logic.currentPhase != game_logic.PLAY_CARD_PHASE:
 		if _showSelect:
 			remove_child(select)
@@ -30,14 +33,14 @@ func _unhandled_input(event):
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			var clicked_cell = world_to_map(event.position)
+			var clicked_cell = self.to_global(world_to_map(get_global_mouse_position()))
 			set_tiles(clicked_cell, INDUSTRY)
 			game_logic.next_phase()
 	elif event is InputEventMouseMotion:
 		if not _showSelect:
 			add_child(select)
 			_showSelect = true
-		var pos = map_to_world(world_to_map(event.position))
+		var pos = self.to_global(map_to_world(world_to_map(get_global_mouse_position())))
 		select.position = pos
 
 func set_type(x, y, type):

@@ -7,4 +7,4 @@ position = Vector2( 131, 74 )
 
 [node name="Select" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( 0, 64 )
+offset = Vector2( 0, 109 )
