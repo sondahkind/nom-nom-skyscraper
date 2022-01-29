@@ -17,12 +17,9 @@ var _showSelect = false
 
 func _ready():
 	game_logic = get_node("/root/Node2D/GameLogic")
-	field_manager = get_node("/root/Node2D/FieldManager")
 	# create list of all cells that are in use
 	for x in range(-map_size, map_size):
 		for y in range(-map_size, map_size):
-			if self.get_cell(x, y) in [PRIMAL, INDUSTRY, WILDERNESS]:
-				field_manager.create_field(Vector2(x, y))
 			if self.get_cell(x, y) >= 0:
 				Global.sim.used_tile(x, y)
 	

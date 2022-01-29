@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/NextPhaseButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/FieldManager.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/CardPrefab.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
@@ -72,9 +71,6 @@ text = "Test"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="FieldManager" type="Node" parent="."]
-script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 800, 500 )

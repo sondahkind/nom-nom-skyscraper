@@ -15,7 +15,6 @@ var max_hand_size = 4
 var Card = preload("Card.gd")
 const CardManager = preload("CardManager.gd")
 const Toppings = preload("simulation/Toppings.gd")
-var field_manager
 
 var card_manager
 
@@ -34,7 +33,6 @@ const WILDERNESS = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.bus.emit_map_refresh()
-	field_manager = get_node("/root/Node2D/FieldManager")
 	card_manager = CardManager.CardManager.new()
 	currentPhase = SETUP_PHASE
 	phase_manager()
@@ -108,7 +106,7 @@ func calculation_phase():
 	is_in_phase = true
 	Global.sim.tick()
 	Global.bus.emit_map_refresh()
-	calculate_tiles()
+	print(Global.sim.stats())
 	$CurrentPhaseLabel.set_text("calculation_phase")
 	next_phase()
 
@@ -119,12 +117,6 @@ func calculation_end_phase():
 	print(currentPhase)
 
 # --------------------------------------------------------------------------
-
-func calculate_tiles():
-	print(field_manager.get_wilderness())
-	print(field_manager.get_industry())
-	# this should be around 0 for a balanced game
-	print(field_manager.get_overall_values())
 
 func next_phase():
 	if (currentPhase < 7):
