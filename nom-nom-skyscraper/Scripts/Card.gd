@@ -3,7 +3,7 @@ extends Object
 class Card:
 
     var card_name = "no_name"
-    var card_image = "res://Assets/Tiles/green_tile.png"
+    var card_image = "res://Assets/Cards/card_nature_tree.png"
     var sprite
     # TODO add card stuff
 

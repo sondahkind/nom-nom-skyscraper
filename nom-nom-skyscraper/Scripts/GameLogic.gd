@@ -127,6 +127,6 @@ func create_cards_and_add_to_deck():
 	card_manager.add_cards_to_deck(fancy_power_plant, 1)
 
 func renderHandCards():
-	var main_node = get_node("/root/Node2D")
+	var main_node = get_node("/root/Node2D/CardHand/Card1")
 	card_manager.display_cards(main_node)
 	
