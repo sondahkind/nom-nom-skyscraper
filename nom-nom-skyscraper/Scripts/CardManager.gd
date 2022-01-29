@@ -4,6 +4,7 @@ class CardManager:
 
 	var Card = preload("Card.gd")
 	const Deck = preload("Deck.gd")
+	var current_card
 
 	var deck
 	var hand_cards = []
@@ -22,6 +23,11 @@ class CardManager:
 		# play a hand card
 		var card = hand_cards[nr]
 		print("play hand card: " + card.card_name)
+<<<<<<< HEAD
+		current_card = card
+		# remove card from deck
+=======
+>>>>>>> 913caadaecec41821527bcd2663e8ba3b107c779
 		hide_cards(card_node.get_parent())
 		# remove card from deck
 		hand_cards.remove(nr)
