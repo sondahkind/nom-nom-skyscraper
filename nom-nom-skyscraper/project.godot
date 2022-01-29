@@ -14,6 +14,10 @@ config/name="nom-nom-skyscraper"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+UI_CardIDs="*res://Scripts/UI_CardIDs.gd"
+
 [display]
 
 window/size/width=1920
