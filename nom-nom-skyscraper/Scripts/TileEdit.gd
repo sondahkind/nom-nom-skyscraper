@@ -7,9 +7,9 @@ var sprite
 var game_logic
 var field_manager
 
+const INDUSTRY = 0
 const WILDERNESS = 1
-const INDUSTRY = 2
-const PRIMAL = 0
+const PRIMAL = 2
 
 var map_size = 15
 
