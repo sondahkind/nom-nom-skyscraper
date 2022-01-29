@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/token_nature_stinkplant.png-208aea693d0cf892a5d361d7b29ce063.res"
+group_file="res://Assets/Toppings/Nature/Toppings.png"
+valid=true
+[deps]
+
+
+source_file="res://Assets/Toppings/Nature/token_nature_stinkplant.png"
+dest_files=[ "res://.import/token_nature_stinkplant.png-208aea693d0cf892a5d361d7b29ce063.res" ]
+
+[params]
+
+atlas_file="res://Assets/Toppings/Nature/Toppings.png"
+import_mode=0
+crop_to_region=false
