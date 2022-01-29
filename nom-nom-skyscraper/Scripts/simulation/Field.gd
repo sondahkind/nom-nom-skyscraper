@@ -11,17 +11,6 @@ class Field:
 	# -1 = no topping
 	# 1 = Tree / Hut
 
-	func add_wilderness(value):
-		if duality + value > MAX_VALUE:
-			duality = MAX_VALUE
-		else:
-			duality += value
-	
-	func add_industry(value):
-		if duality - value < -MAX_VALUE:
-			duality = -MAX_VALUE
-		else:
-			duality -= value
 
 	func base_type():
 		if duality < 0:
