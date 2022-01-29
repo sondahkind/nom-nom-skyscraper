@@ -8,9 +8,9 @@ var buttonLabel = "Placeholder"
 var currentPhase = 0
 var is_in_phase = false
 
-var ammount_of_cards_drawn_at_start = 2
-var ammount_of_cards_drawn_at_draw_phase = 1
-var max_hand_size = 4
+export var ammount_of_cards_drawn_at_start = 3
+export var ammount_of_cards_drawn_at_draw_phase = 1
+export var max_hand_size = 4
 
 var Card = preload("Card.gd")
 const CardManager = preload("CardManager.gd")
