@@ -12,13 +12,13 @@ var ammount_of_cards_drawn = 3
 
 var Card = preload("Card.gd")
 const CardManager = preload("CardManager.gd")
-var fieldManager
+var field_manager
 
 var card_manager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	fieldManager = get_node("/root/Node2D/FieldManager")
+	field_manager = get_node("/root/Node2D/FieldManager")
 	card_manager = CardManager.CardManager.new()
 	currentPhase = 0
 	phase_manager()
@@ -84,6 +84,7 @@ func play_end_card_phase():
 
 func calculation_phase():
 	is_in_phase = true
+	calculate_tiles()
 	$CurrentPhaseLabel.set_text("calculation_phase")
 
 func calculation_end_phase():
@@ -91,6 +92,9 @@ func calculation_end_phase():
 	$CurrentPhaseLabel.set_text("calculation_end_phase")
 
 # --------------------------------------------------------------------------
+
+func calculate_tiles():
+	print(field_manager.get_overall_values())
 
 func next_phase():
 	if (currentPhase <=7):
