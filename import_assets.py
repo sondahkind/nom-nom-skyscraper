@@ -5,7 +5,7 @@ import os
 
 SCALE = 0.25
 
-TEMPLATE_RES = '[ext_resource path="res://Assets/Tiles/{name}" type="Texture" id={i1}]\n'
+TEMPLATE_RES = '[ext_resource path="res://Assets/{path}" type="Texture" id={i1}]\n'
 
 TEMPLATE = """
 {i}/name = "{name}"
@@ -24,12 +24,15 @@ TEMPLATE = """
 {i}/z_index = 0
 """
 
+ASSET_BASE = pathlib.Path("nom-nom-skyscraper/Assets")
+
 
 def importer(assets, dst, scale=1):
     tiles = open(dst / "tiles.tres", "w")
     tiles.write('[gd_resource type="TileSet" load_steps=4 format=2]\n\n')
     tiles_resources = []
 
+    asset: pathlib.Path
     for i, asset in enumerate(sorted(assets.glob("*.png"))):
         img = PIL.Image.open(asset)
         new_size = map(lambda x: int(x * scale), img.size)
@@ -42,6 +45,7 @@ def importer(assets, dst, scale=1):
             "i1": i + 1,
             "name": asset.name,
             "img": resized_img,
+            "path": (dst / asset.name).absolute().relative_to(ASSET_BASE.absolute())
         }
 
         tiles.write(
@@ -60,9 +64,8 @@ def importer(assets, dst, scale=1):
 
 def main():
     src = pathlib.Path("Assets")
-    dst = pathlib.Path("nom-nom-skyscraper/Assets")
-    importer(src / "Tiles", dst / "Tiles", 0.25)
-    importer(src / "Toppings/Nature", dst / "Toppings/Nature", 0.25)
+    importer(src / "Tiles", ASSET_BASE / "Tiles", 0.25)
+    importer(src / "Toppings/Nature", ASSET_BASE / "Toppings/Nature", 0.25)
 
 
 if __name__ == "__main__":
