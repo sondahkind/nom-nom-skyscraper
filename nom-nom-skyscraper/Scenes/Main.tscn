@@ -26,6 +26,7 @@ __meta__ = {
 [node name="CardHand" type="CanvasLayer" parent="UI"]
 
 [node name="Card1" parent="UI/CardHand" instance=ExtResource( 7 )]
+visible = false
 margin_left = 123.0
 margin_top = 471.0
 margin_right = 457.0
@@ -33,6 +34,7 @@ margin_bottom = 925.0
 disabled = true
 
 [node name="Card2" parent="UI/CardHand" instance=ExtResource( 7 )]
+visible = false
 margin_left = 500.0
 margin_top = 471.0
 margin_right = 834.0
@@ -41,6 +43,7 @@ disabled = true
 cardNr = 1
 
 [node name="Card3" parent="UI/CardHand" instance=ExtResource( 7 )]
+visible = false
 margin_left = 876.0
 margin_top = 471.0
 margin_right = 1210.0
@@ -49,6 +52,7 @@ disabled = true
 cardNr = 2
 
 [node name="Card4" parent="UI/CardHand" instance=ExtResource( 7 )]
+visible = false
 margin_left = 1267.0
 margin_top = 471.0
 margin_right = 1601.0
