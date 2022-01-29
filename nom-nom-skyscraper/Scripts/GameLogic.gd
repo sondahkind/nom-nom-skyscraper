@@ -67,6 +67,8 @@ func draw_phase():
 	is_in_phase = true
 	$CurrentPhaseLabel.set_text("draw_phase")
 	card_manager.draw_cards(ammount_of_cards_drawn)
+	renderHandCards()
+
 
 func draw_end_phase():
 	is_in_phase = true
@@ -123,3 +125,8 @@ func create_cards_and_add_to_deck():
 	card_manager.add_cards_to_deck(skyscraper_card, 3)
 	card_manager.add_cards_to_deck(totally_not_a_trash_pile_card, 2)
 	card_manager.add_cards_to_deck(fancy_power_plant, 1)
+
+func renderHandCards():
+	var main_node = get_node("/root/Node2D")
+	card_manager.display_cards(main_node)
+	

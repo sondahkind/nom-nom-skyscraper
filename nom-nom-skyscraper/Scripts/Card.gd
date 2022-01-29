@@ -14,7 +14,8 @@ class Card:
     func set_card_values(card_name_new):
         self.card_name = card_name_new
 
-    func display_card():
+    func display_card(drawing_node):
         sprite = Sprite.new()
         sprite.texture = load(card_image)
-        #var game_logic_node = get_node("/root/Node2D/GameLogic")
+        drawing_node.add_child(sprite)
+        #
