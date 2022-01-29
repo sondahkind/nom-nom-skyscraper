@@ -5,6 +5,13 @@ class Card:
 	var card_image = "res://Assets/Cards/card_nature_tree.png"
 	var sprite
 	var texture
+
+	const INDUSTRY = 0
+	const WILDERNESS = 1
+
+	var card_type
+	var card_intensity
+	var card_radius
 	# TODO add card stuff
 
 	# Is the constructor is calles with Card.new() an creates new object

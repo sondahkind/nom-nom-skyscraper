@@ -29,6 +29,9 @@ const PLAY_CARD_END_PHASE = 5
 const CALCULATION_PHASE = 6
 const CALCULATION_END_PHASE = 7
 
+const INDUSTRY = 0
+const WILDERNESS = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	field_manager = get_node("/root/Node2D/FieldManager")
@@ -90,6 +93,7 @@ func draw_phase():
 func draw_end_phase():
 	is_in_phase = true
 	hideHandCards()
+	next_phase()
 	$CurrentPhaseLabel.set_text("draw_end_phase")
 
 func play_card_phase():
@@ -128,10 +132,29 @@ func next_phase():
 func create_cards_and_add_to_deck():
 	# Wilderness
 	var tree_card = Card.Card.new("Baum", "res://Assets/Cards/card_nature_tree.png")
+	tree_card.card_type = WILDERNESS
+	tree_card.card_intensity = 1
+	tree_card.card_radius = 1
+
 	var hill_card = Card.Card.new("Hügelchen", "res://Assets/Cards/card_nature_hill.png")
+	hill_card.card_type = WILDERNESS
+	hill_card.card_intensity = 1
+	hill_card.card_radius = 1
+
 	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun", "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png")
+	look_at_the_size_of_this_tree_card.card_type = WILDERNESS
+	look_at_the_size_of_this_tree_card.card_intensity = 1
+	look_at_the_size_of_this_tree_card.card_radius = 1
+
 	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_moor.png")
+	moor_card.card_type = WILDERNESS
+	moor_card.card_intensity = 1
+	moor_card.card_radius = 1
+
 	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_nom_nom_plant.png")
+	nom_nom_plant_card.card_type = WILDERNESS
+	nom_nom_plant_card.card_intensity = 1
+	nom_nom_plant_card.card_radius = 1
 
 	card_manager.add_cards_to_deck(tree_card, 5)
 	card_manager.add_cards_to_deck(hill_card, 4)
@@ -141,10 +164,29 @@ func create_cards_and_add_to_deck():
 
 	# Industrie
 	var hut_card = Card.Card.new("Hütte", "res://Assets/Cards/card_industrie_hut.png")
+	hut_card.card_type = INDUSTRY
+	hut_card.card_intensity = 1
+	hut_card.card_radius = 1
+
 	var shop_card = Card.Card.new("Geschäft", "res://Assets/Cards/card_industrie_shop.png")
+	shop_card.card_type = INDUSTRY
+	shop_card.card_intensity = 1
+	shop_card.card_radius = 1
+	
 	var skyscraper_card = Card.Card.new("Hochhaus", "res://Assets/Cards/card_industrie_skyscraper.png")
-	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.pngg")
+	skyscraper_card.card_type = INDUSTRY
+	skyscraper_card.card_intensity = 1
+	skyscraper_card.card_radius = 1
+	
+	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png")
+	totally_not_a_trash_pile_card.card_type = INDUSTRY
+	totally_not_a_trash_pile_card.card_intensity = 1
+	totally_not_a_trash_pile_card.card_radius = 1
+	
 	var fancy_power_plant = Card.Card.new("Kraftwerk", "res://Assets/Cards/card_industrie_fancy_power_plant.png")
+	fancy_power_plant.card_type = INDUSTRY
+	fancy_power_plant.card_intensity = 1
+	fancy_power_plant.card_radius = 1
 
 	card_manager.add_cards_to_deck(hut_card, 5)
 	card_manager.add_cards_to_deck(shop_card, 4)
@@ -160,3 +202,6 @@ func renderHandCards():
 func hideHandCards():
 	var main_node = get_node("/root/Node2D/UI/CardHand")
 	card_manager.hide_cards(main_node)
+
+func get_card_manager():
+	return card_manager

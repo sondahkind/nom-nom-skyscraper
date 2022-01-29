@@ -34,7 +34,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var clicked_cell = self.to_global(world_to_map(get_global_mouse_position()))
-			set_tiles(clicked_cell, INDUSTRY)
+			set_tiles(clicked_cell, game_logic.get_card_manager().current_card.card_type)
 			game_logic.next_phase()
 	elif event is InputEventMouseMotion:
 		if not _showSelect:
