@@ -150,6 +150,6 @@ func create_cards_and_add_to_deck():
 
 
 func renderHandCards():
-	var main_node = get_node("/root/Node2D/CardHand")
+	var main_node = get_node("/root/Node2D/UI/CardHand")
 	card_manager.display_cards(main_node)
 	
