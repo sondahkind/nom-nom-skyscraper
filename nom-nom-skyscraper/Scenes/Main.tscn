@@ -37,4 +37,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CardHand" type="CanvasLayer" parent="."]
+
 [connection signal="pressed" from="NextPhaseButton" to="NextPhaseButton" method="_on_NextPhaseButton_pressed"]
