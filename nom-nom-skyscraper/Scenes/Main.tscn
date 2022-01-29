@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/NextPhaseButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/FieldManager.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Toppings.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/map/Toppings.gd" type="Script" id=6]
 
 [node name="Node2D" type="Node2D"]
 
