@@ -1,16 +1,16 @@
 [gd_resource type="TileSet" load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Tiles/primal_cube.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Tiles/city_cube.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Tiles/grass_cube.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Tiles/city_cube.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Tiles/primal_cube.png" type="Texture" id=3]
 
 [resource]
 
-0/name = "primal_cube.png"
+0/name = "city_cube.png"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 253, 267 )
+0/region = Rect2( 0, 0, 253, 390 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 128, 64 )
 0/navigation_offset = Vector2( 128, 64 )
@@ -25,7 +25,7 @@
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 253, 267 )
+1/region = Rect2( 0, 0, 253, 390 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 128, 64 )
 1/navigation_offset = Vector2( 128, 64 )
@@ -36,11 +36,11 @@
 1/shapes = [  ]
 1/z_index = 0
 
-2/name = "city_cube.png"
+2/name = "primal_cube.png"
 2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 253, 267 )
+2/region = Rect2( 0, 0, 253, 390 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 128, 64 )
 2/navigation_offset = Vector2( 128, 64 )
