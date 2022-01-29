@@ -55,3 +55,5 @@ class CardManager:
 
 	func get_hand_size():
 		return hand_cards.size()
+
+		
