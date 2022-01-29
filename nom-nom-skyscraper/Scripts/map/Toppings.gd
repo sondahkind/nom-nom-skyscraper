@@ -1,13 +1,13 @@
 extends TileMap
 
 var dragging = false
-var cam: Camera2D
+# var cam: Camera2D
 var game_logic
 var mouse_start_pos
 
 func _ready():
 	game_logic = get_node("/root/Node2D/GameLogic")
-	cam = get_node("/root/Node2D/Map/Camera2D")
+	# cam = get_node("/root/Node2D/Map/Camera2D")
 	Global.bus.connect("map_refresh", self, "_on_map_refresh")
 
 
