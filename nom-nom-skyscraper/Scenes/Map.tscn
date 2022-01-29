@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/map/Toppings.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/map/MapView.gd" type="Script" id=5]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="MapView" type="Node" parent="."]
 script = ExtResource( 5 )

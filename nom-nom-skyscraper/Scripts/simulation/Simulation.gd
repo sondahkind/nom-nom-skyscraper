@@ -18,8 +18,10 @@ class Simulation:
 		for prev_field in previous_map.fields.values():
 			var pos = prev_field.pos
 			var field = current_map.get_tile(pos.x, pos.y)
+			if not field:
+				# field outside of map
+				continue
 			field.duality_topping = prev_field.duality_topping
-
 			var i_pos
 			for influence in field.duality_topping.get_influence():
 				i_pos = pos + influence[0]
