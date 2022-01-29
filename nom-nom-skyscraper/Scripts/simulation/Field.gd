@@ -1,10 +1,12 @@
+const Toppings = preload("Toppings.gd")
+
 const MAX_VALUE = 10
 
 class Field:
 	# position in tileset coordinates
 	var pos: Vector2
 	var duality: int = 0
-	var duality_topping: int = -1
+	var duality_topping = Toppings.BaseTopping.new()
 
 	# -1 = no topping
 	# 1 = Tree / Hut

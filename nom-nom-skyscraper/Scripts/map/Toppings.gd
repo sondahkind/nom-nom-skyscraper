@@ -14,7 +14,7 @@ func _ready():
 func _on_map_refresh():
 	print("map refresh - toppings!")
 	for field in Global.sim.current_map.fields.values():
-		set_cell(field.pos[0], field.pos[1], field.duality_topping)
+		set_cell(field.pos[0], field.pos[1], field.duality_topping.tile_index)
 	
 
 # func _unhandled_input(event):
