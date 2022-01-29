@@ -8,7 +8,7 @@ var mouse_start_pos
 func _ready():
 	game_logic = get_node("/root/Node2D/GameLogic")
 	cam = get_node("/root/Node2D/Map/Camera2D")
-	game_logic.connect("map_refresh", self, "_on_map_refresh")
+	Global.bus.connect("map_refresh", self, "_on_map_refresh")
 
 
 func _on_map_refresh():

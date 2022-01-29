@@ -25,7 +25,6 @@ func _ready():
 				field_manager.create_field(Vector2(x, y))
 
 func _unhandled_input(event):
-
 	if game_logic.currentPhase != game_logic.PLAY_CARD_PHASE:
 		if _showSelect:
 			remove_child(select)
