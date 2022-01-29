@@ -123,11 +123,11 @@ func next_phase():
 
 func create_cards_and_add_to_deck():
 	# Wilderness
-	var tree_card = Card.Card.new("Baum")
-	var hill_card = Card.Card.new("Hügelchen")
-	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun")
-	var moor_card = Card.Card.new("Moor")
-	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze")
+	var tree_card = Card.Card.new("Baum", "res://Assets/Cards/card_nature_tree.png")
+	var hill_card = Card.Card.new("Hügelchen", "res://Assets/Cards/card_nature_tree.png")
+	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun", "res://Assets/Cards/card_nature_tree.png")
+	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_tree.png")
+	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_tree.png")
 
 	card_manager.add_cards_to_deck(tree_card, 5)
 	card_manager.add_cards_to_deck(hill_card, 4)
@@ -136,11 +136,11 @@ func create_cards_and_add_to_deck():
 	card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
 
 	# Industrie
-	var hut_card = Card.Card.new("Hütte")
-	var shop_card = Card.Card.new("Geschäft")
-	var skyscraper_card = Card.Card.new("Hochhaus")
-	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station")
-	var fancy_power_plant = Card.Card.new("Kraftwerk")
+	var hut_card = Card.Card.new("Hütte", "res://Assets/Cards/card_nature_tree.png")
+	var shop_card = Card.Card.new("Geschäft", "res://Assets/Cards/card_nature_tree.png")
+	var skyscraper_card = Card.Card.new("Hochhaus", "res://Assets/Cards/card_nature_tree.png")
+	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_nature_tree.png")
+	var fancy_power_plant = Card.Card.new("Kraftwerk", "res://Assets/Cards/card_nature_tree.png")
 
 	card_manager.add_cards_to_deck(hut_card, 5)
 	card_manager.add_cards_to_deck(shop_card, 4)

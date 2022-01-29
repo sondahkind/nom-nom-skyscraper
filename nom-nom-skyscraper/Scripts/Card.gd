@@ -8,8 +8,9 @@ class Card:
 	# TODO add card stuff
 
 	# Is the constructor is calles with Card.new() an creates new object
-	func _init(card_name_new):
+	func _init(card_name_new, card_image_path):
 		self.card_name = card_name_new
+		card_image = card_image_path
 		pass
 
 	func set_card_values(card_name_new):
