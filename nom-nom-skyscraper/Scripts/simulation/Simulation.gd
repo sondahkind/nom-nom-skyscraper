@@ -11,10 +11,20 @@ class Simulation:
 
 	func tick():
 		print("Simulation tick")
-		# previous_map = current_map
-		# current_map = map.Map.new()
+		previous_map = current_map
+		current_map = map.Map.new(_used_tiles)
 		
-		# for tile in current_map.
+		# copy all toppings
+		for prev_field in previous_map.fields.values():
+			var pos = prev_field.pos
+			var field = current_map.get_tile(pos.x, pos.y)
+			field.duality_topping = prev_field.duality_topping
+
+			var i_pos
+			for influence in field.duality_topping.get_influence():
+				i_pos = pos + influence[0]
+				var inf_field = current_map.get_tile(i_pos.x, i_pos.y)
+				inf_field.duality += influence[1]
 
 		return map
 
