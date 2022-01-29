@@ -16,11 +16,20 @@ var field_manager
 
 var card_manager
 
+const SETUP_PHASE = 0
+const SETUP_END_PHASE = 1
+const DRAW_PHASE = 2
+const DRAW_END_PHASE = 3
+const PLAY_CARD_PHASE = 4
+const PLAY_CARD_END_PHASE = 5
+const CALCULATION_PHASE = 6
+const CALCULATION_END_PHASE = 7
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	field_manager = get_node("/root/Node2D/FieldManager")
 	card_manager = CardManager.CardManager.new()
-	currentPhase = 0
+	currentPhase = SETUP_PHASE
 	phase_manager()
 
 
@@ -33,21 +42,21 @@ func _process(delta):
 
 func phase_manager():
 	if (is_in_phase != true):
-		if (currentPhase == 0):
+		if (currentPhase == SETUP_PHASE):
 			setup_phase()
-		if (currentPhase == 1):
+		if (currentPhase == SETUP_END_PHASE):
 			setup_end_phase()
-		if (currentPhase == 2):
+		if (currentPhase == DRAW_PHASE):
 			draw_phase()
-		if (currentPhase == 3):
+		if (currentPhase == DRAW_END_PHASE):
 			draw_end_phase()
-		if (currentPhase == 4):
+		if (currentPhase == PLAY_CARD_PHASE):
 			play_card_phase()
-		if (currentPhase == 5):
+		if (currentPhase == play_end_card_phase()):
 			play_end_card_phase()
-		if (currentPhase == 6):
+		if (currentPhase == CALCULATION_PHASE):
 			calculation_phase()
-		if (currentPhase == 7):
+		if (currentPhase == CALCULATION_END_PHASE):
 			calculation_end_phase()
 
 # -------------------------------------PHASES-------------------------------------
@@ -94,6 +103,9 @@ func calculation_end_phase():
 # --------------------------------------------------------------------------
 
 func calculate_tiles():
+	print(field_manager.get_wilderness())
+	print(field_manager.get_industry())
+	# this should be around 0 for a balanced game
 	print(field_manager.get_overall_values())
 
 func next_phase():
