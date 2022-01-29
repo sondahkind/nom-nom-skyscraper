@@ -8,7 +8,9 @@ var buttonLabel = "Placeholder"
 var currentPhase = 0
 var is_in_phase = false
 
-var ammount_of_cards_drawn = 3
+var ammount_of_cards_drawn_at_start = 2
+var ammount_of_cards_drawn_at_draw_phase = 1
+var max_hand_size = 4
 
 var Card = preload("Card.gd")
 const CardManager = preload("CardManager.gd")
@@ -61,12 +63,15 @@ func setup_phase():
 	
 func setup_end_phase():
 	is_in_phase = true
+	card_manager.draw_cards(ammount_of_cards_drawn_at_start)
 	$CurrentPhaseLabel.set_text("setup_end_phase")
 
 func draw_phase():
 	is_in_phase = true
 	$CurrentPhaseLabel.set_text("draw_phase")
-	card_manager.draw_cards(ammount_of_cards_drawn)
+	if (card_manager.get_hand_size() < max_hand_size):
+		card_manager.draw_cards(ammount_of_cards_drawn_at_draw_phase)
+
 	renderHandCards()
 
 
@@ -96,7 +101,7 @@ func next_phase():
 	if (currentPhase <=7):
 		currentPhase = currentPhase + 1
 	else:
-		currentPhase = 1
+		currentPhase = 2
 	is_in_phase = false
 
 func create_cards_and_add_to_deck():
