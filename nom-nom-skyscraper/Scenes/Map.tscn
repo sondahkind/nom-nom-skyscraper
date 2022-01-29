@@ -26,3 +26,5 @@ centered_textures = true
 format = 1
 tile_data = PoolIntArray( -327673, 0, 0, -262137, 1, 0, -131066, 1, 0, -131064, 1, 0, -65531, 0, 0, 131076, 0, 0, 327690, 1, 0 )
 script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
