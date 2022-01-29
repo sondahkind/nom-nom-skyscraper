@@ -27,11 +27,13 @@ class Card:
 		if (drawing_node.get_child_count() > 0):
 			drawing_node.remove_child(drawing_node.get_child(0))
 		drawing_node.visible = false
+		drawing_node.disabled = true
 
 	func display_card(drawing_node):
 		if (drawing_node.get_child_count() > 0):
 			drawing_node.remove_child(drawing_node.get_child(0))
 		drawing_node.visible = true
+		drawing_node.disabled = false
 		sprite = Sprite.new()
 		sprite.texture = texture
 		sprite.scale = Vector2(0.35, 0.35)
