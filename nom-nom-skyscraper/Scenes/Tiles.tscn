@@ -1,16 +1,24 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Tiles/green_tile.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Tiles/red_tile.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Tiles/white_tile.png" type="Texture" id=3]
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/green_tile.png-04962e537a77750e6a29d70d019c09de.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/red_tile.png-5fc63769d9302f8c889ddfd78cc8d919.stex"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/white_tile.png-a469300c21df2229e2e8f038aae91e4a.stex"
 
 [node name="Node2D" type="Node2D"]
 
 [node name="GreenTile" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = SubResource( 1 )
 
 [node name="RedTile" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = SubResource( 2 )
 
 [node name="WhiteTile" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = SubResource( 3 )
