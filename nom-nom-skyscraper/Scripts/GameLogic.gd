@@ -52,7 +52,7 @@ func phase_manager():
 			draw_end_phase()
 		if (currentPhase == PLAY_CARD_PHASE):
 			play_card_phase()
-		if (currentPhase == play_end_card_phase()):
+		if (currentPhase == PLAY_CARD_END_PHASE):
 			play_end_card_phase()
 		if (currentPhase == CALCULATION_PHASE):
 			calculation_phase()
