@@ -1,11 +1,9 @@
 extends TileMap
 
 var select = preload("res://Scenes/Select.tscn").instance()
-var sprite
 
 
 var game_logic
-var field_manager
 
 const INDUSTRY = 0
 const WILDERNESS = 1
@@ -45,6 +43,7 @@ func _unhandled_input(event):
 			var current_card = game_logic.get_card_manager().current_card
 			var card_type = current_card.card_topping
 			var tile = Global.sim.current_map.get_tile(clicked_cell.x, clicked_cell.y)
+			
 			if not tile:
 				# ignore if the player clicks outside the map
 				return

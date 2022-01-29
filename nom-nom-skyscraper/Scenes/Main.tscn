@@ -59,6 +59,13 @@ margin_bottom = 925.0
 disabled = true
 cardNr = 3
 
+[node name="FieldDuality" type="Label" parent="UI"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource( 4 )
 
