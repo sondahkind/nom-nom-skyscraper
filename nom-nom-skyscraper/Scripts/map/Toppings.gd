@@ -13,6 +13,9 @@ func _ready():
 
 func _on_map_refresh():
 	print("map refresh - toppings!")
+	for field in Global.sim.current_map.fields.values():
+		set_cell(field.pos[0], field.pos[1], 1)
+	
 
 # func _unhandled_input(event):
 # 	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:

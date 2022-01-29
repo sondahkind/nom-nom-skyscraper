@@ -23,6 +23,18 @@ func _ready():
 		for y in range(-map_size, map_size):
 			if self.get_cell(x, y) in [PRIMAL, INDUSTRY, WILDERNESS]:
 				field_manager.create_field(Vector2(x, y))
+			if self.get_cell(x, y) >= 0:
+				Global.sim.used_tile(x, y)
+	
+	Global.sim.used_tiles_marked()
+	Global.bus.connect("map_refresh", self, "_on_map_refresh")
+
+
+func _on_map_refresh():
+	print("map refresh - Basemap")
+	for field in Global.sim.current_map.fields.values():
+		set_cell(field.pos[0], field.pos[1], field.base_type())
+	
 
 func _unhandled_input(event):
 	if game_logic.currentPhase != game_logic.PLAY_CARD_PHASE:
@@ -33,7 +45,8 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var clicked_cell = self.to_global(world_to_map(get_global_mouse_position()))
-			set_tiles(clicked_cell, game_logic.get_card_manager().current_card.card_type)
+			var card_type = game_logic.get_card_manager().current_card.card_type
+			Global.sim.current_map.get_tile(clicked_cell.x, clicked_cell.y, card_type)
 			game_logic.next_phase()
 	elif event is InputEventMouseMotion:
 		if not _showSelect:
@@ -42,24 +55,27 @@ func _unhandled_input(event):
 		var pos = self.to_global(map_to_world(world_to_map(get_global_mouse_position())))
 		select.position = pos
 
-func set_type(x, y, type):
-	var field = field_manager.get_field(x, y)
-	if not field:
-		return
-	if type == INDUSTRY:
-		field.add_industry(1)
-	elif type == WILDERNESS:
-		field.add_wilderness(1)
-	self.set_cell(x, y, type)
 
-func set_tiles(pos, type):
-	set_type(pos.x+1, pos.y, type)
-	set_type(pos.x-1, pos.y, type)
-	set_type(pos.x, pos.y+1, type)
-	set_type(pos.x, pos.y-1, type)
+# func set_type(x, y, type):
+# 	var field = field_manager.get_field(x, y)
+# 	if not field:
+# 		return
+# 	if type == INDUSTRY:
+# 		field.add_industry(1)
+# 	elif type == WILDERNESS:
+# 		field.add_wilderness(1)
+# 	self.set_cell(x, y, type)
+
+# func set_tiles(pos, type):
+# 	set_type(pos.x, pos.y, -1)
+# 	print("M update: ", pos[0], ",", pos[1])
+# 	set_type(pos.x+1, pos.y, type)
+# 	set_type(pos.x-1, pos.y, type)
+# 	set_type(pos.x, pos.y+1, type)
+# 	set_type(pos.x, pos.y-1, type)
 	
-	set_type(pos.x+1, pos.y+1, type)
-	set_type(pos.x+1, pos.y-1, type)
-	set_type(pos.x-1, pos.y+1, type)
-	set_type(pos.x-1, pos.y-1, type)
+# 	set_type(pos.x+1, pos.y+1, type)
+# 	set_type(pos.x+1, pos.y-1, type)
+# 	set_type(pos.x-1, pos.y+1, type)
+# 	set_type(pos.x-1, pos.y-1, type)
 

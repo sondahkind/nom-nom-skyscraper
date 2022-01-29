@@ -18,8 +18,6 @@ var field_manager
 
 var card_manager
 
-signal map_refresh
-
 const SETUP_PHASE = 0
 const SETUP_END_PHASE = 1
 const DRAW_PHASE = 2
@@ -34,18 +32,18 @@ const WILDERNESS = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.bus.emit_map_refresh()
 	field_manager = get_node("/root/Node2D/FieldManager")
 	card_manager = CardManager.CardManager.new()
 	currentPhase = SETUP_PHASE
 	phase_manager()
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# get_node("CurrentPhaseLabel").text = "pre_phase"
 	phase_manager()
 	pass
+
 
 func phase_manager():
 	if (is_in_phase != true):
@@ -107,6 +105,8 @@ func play_end_card_phase():
 
 func calculation_phase():
 	is_in_phase = true
+	Global.sim.tick()
+	Global.bus.emit_map_refresh()
 	calculate_tiles()
 	$CurrentPhaseLabel.set_text("calculation_phase")
 	next_phase()
@@ -124,7 +124,6 @@ func calculate_tiles():
 	print(field_manager.get_industry())
 	# this should be around 0 for a balanced game
 	print(field_manager.get_overall_values())
-	emit_signal("map_refresh")
 
 func next_phase():
 	if (currentPhase < 7):
