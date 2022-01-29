@@ -12,11 +12,13 @@ var ammount_of_cards_drawn = 3
 
 var Card = preload("Card.gd")
 const Deck = preload("Deck.gd")
+var fieldManager
 
 var deck
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	fieldManager = get_node("/root/Node2D/FieldManager")
 	deck = Deck.Deck.new()
 	currentPhase = 0
 	phase_manager()
@@ -72,7 +74,7 @@ func draw_phase():
 func draw_end_phase():
 	is_in_phase = true
 	$CurrentPhaseLabel.set_text("draw_end_phase")
-	draw_cards(1)	
+	draw_cards(1)
 
 func play_card_phase():
 	is_in_phase = true

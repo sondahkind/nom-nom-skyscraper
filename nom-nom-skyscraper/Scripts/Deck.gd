@@ -17,7 +17,7 @@ class Deck:
 
 	func shuffle():
 		var shuffled_deck = []
-        #Todo
+		#Todo
 		while deck.size() > 0:
 			var rng = RandomNumberGenerator.new()
 			rng.randomize()
