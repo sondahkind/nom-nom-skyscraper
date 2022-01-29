@@ -52,14 +52,14 @@ class Simulation:
 		for field in self.current_map.fields.values():
 			var base_type = field.base_type()
 			if base_type == 0:
-				stats["wilderness_count"] += 1
-			elif base_type == 1:
 				stats["industry_count"] += 1
+			elif base_type == 1:
+				stats["wilderness_count"] += 1
 			elif base_type == 2:
 				stats["neutral_count"] += 1
 			stats["duality"] += field.duality
 		
 		var count = stats["neutral_count"] + stats["industry_count"] + stats["wilderness_count"]
-		stats["wilderness_perc"] = stats["wilderness_count"] / count * 100
-		stats["industry_perc"] = stats["industry_count"] / count * 100
+		stats["wilderness_perc"] = stats["wilderness_count"] * 100 / count 
+		stats["industry_perc"] = stats["industry_count"] * 100 / count
 		return stats
