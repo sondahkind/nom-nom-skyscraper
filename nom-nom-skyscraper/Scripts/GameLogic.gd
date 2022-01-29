@@ -95,7 +95,6 @@ func draw_end_phase():
 	hideHandCards()
 	next_phase()
 	$CurrentPhaseLabel.set_text("draw_end_phase")
-	next_phase()
 
 func play_card_phase():
 	is_in_phase = true

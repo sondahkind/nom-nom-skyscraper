@@ -22,12 +22,8 @@ class CardManager:
 		var nr = card_node.cardNr
 		# play a hand card
 		var card = hand_cards[nr]
-		print("play hand card: " + card.card_name)
-<<<<<<< HEAD
 		current_card = card
-		# remove card from deck
-=======
->>>>>>> 913caadaecec41821527bcd2663e8ba3b107c779
+		print("play hand card: " + card.card_name)
 		hide_cards(card_node.get_parent())
 		# remove card from deck
 		hand_cards.remove(nr)
