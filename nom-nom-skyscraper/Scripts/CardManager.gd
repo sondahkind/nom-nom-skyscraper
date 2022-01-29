@@ -2,7 +2,6 @@ extends Object
 
 class CardManager:
 
-	var deckHand
 	var Card = preload("Card.gd")
 	const Deck = preload("Deck.gd")
 	var current_card
@@ -17,19 +16,24 @@ class CardManager:
 		deck.add_cards(card, ammount)
 
 	func shuffle_deck():
-		pass
 		deck.shuffle()
 	
-	func play_card(card_node: TextureButton):
+	func play_card(game_logic_node, card_node: TextureButton):
 		var nr = card_node.cardNr
 		# play a hand card
 		var card = hand_cards[nr]
 		print("play hand card: " + card.card_name)
+<<<<<<< HEAD
 		current_card = card
 		# remove card from deck
+=======
+>>>>>>> 913caadaecec41821527bcd2663e8ba3b107c779
 		hide_cards(card_node.get_parent())
+		# remove card from deck
 		hand_cards.remove(nr)
-		# hand_cards[nr].card_name
+		# end draw phase
+		game_logic_node.next_phase()
+
 	
 	func draw_cards(numberOfCards):
 		# draw hand cards

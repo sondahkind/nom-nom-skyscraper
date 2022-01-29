@@ -73,14 +73,14 @@ func setup_phase():
 	create_cards_and_add_to_deck()
 	card_manager.shuffle_deck()
 	#Basic Deck filling example
-
-
 	$CurrentPhaseLabel.set_text("setup_phase")
+	next_phase()
 	
 func setup_end_phase():
 	is_in_phase = true
 	card_manager.draw_cards(ammount_of_cards_drawn_at_start)
 	$CurrentPhaseLabel.set_text("setup_end_phase")
+	next_phase()
 
 func draw_phase():
 	is_in_phase = true
@@ -95,6 +95,7 @@ func draw_end_phase():
 	hideHandCards()
 	next_phase()
 	$CurrentPhaseLabel.set_text("draw_end_phase")
+	next_phase()
 
 func play_card_phase():
 	is_in_phase = true
@@ -103,15 +104,19 @@ func play_card_phase():
 func play_end_card_phase():
 	is_in_phase = true
 	$CurrentPhaseLabel.set_text("play_end_card_phase")
+	next_phase()
 
 func calculation_phase():
 	is_in_phase = true
 	calculate_tiles()
 	$CurrentPhaseLabel.set_text("calculation_phase")
+	next_phase()
 
 func calculation_end_phase():
 	is_in_phase = true
 	$CurrentPhaseLabel.set_text("calculation_end_phase")
+	next_phase()
+	print(currentPhase)
 
 # --------------------------------------------------------------------------
 
@@ -123,7 +128,7 @@ func calculate_tiles():
 	emit_signal("map_refresh")
 
 func next_phase():
-	if (currentPhase <=7):
+	if (currentPhase < 7):
 		currentPhase = currentPhase + 1
 	else:
 		currentPhase = 2
