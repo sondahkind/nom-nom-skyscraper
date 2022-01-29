@@ -17,11 +17,12 @@ class Deck:
 
 	func shuffle():
 		var shuffled_deck = []
-        #Todo
+		#Todo
 		while deck.size() > 0:
+			print(deck.size())
 			var rng = RandomNumberGenerator.new()
 			rng.randomize()
-			var card_number = rng.randi_range(0, deck.size())
+			var card_number = rng.randi_range(0, (deck.size()-1))
 			shuffled_deck.append(deck[card_number])
 			deck.remove(card_number)
 		deck = shuffled_deck
