@@ -16,9 +16,7 @@ func get_field(x, y):
 	return null
 
 func get_overall_values():
-	var industry = 0
-	var wilderness = 0
+	var duality = 0
 	for field in fields:
-		industry += field.industry
-		wilderness += field.wilderness
-	return [industry, wilderness]
+		duality += field.duality
+	return duality
