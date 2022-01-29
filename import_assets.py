@@ -5,7 +5,7 @@ import os
 
 SCALE = 0.25
 
-TEMPLATE_RES = '[ext_resource path="res://Assets/Tiles/{name}" type="Texture" id={i1}]\n'
+TEMPLATE_RES = '[ext_resource path="res://Assets/{path}" type="Texture" id={i1}]\n'
 
 TEMPLATE = """
 {i}/name = "{name}"
@@ -24,27 +24,34 @@ TEMPLATE = """
 {i}/z_index = 0
 """
 
+ASSET_BASE = pathlib.Path("nom-nom-skyscraper/Assets")
 
-def main():
-    assets = pathlib.Path("Assets/Tiles")
-    dst = pathlib.Path("nom-nom-skyscraper/Assets/Tiles")
 
-    tiles = open("nom-nom-skyscraper/Assets/Tiles/tiles.tres", "w")
+def importer(assets, dst, scale=1):
+    tiles = open(dst / "tiles.tres", "w")
     tiles.write('[gd_resource type="TileSet" load_steps=4 format=2]\n\n')
     tiles_resources = []
+    print(assets)
 
-    for i, asset in enumerate(assets.glob("*.png")):
+    asset: pathlib.Path
+    for i, asset in enumerate(sorted(assets.glob("**/*.png"))):
+        print(dst)
+        name = asset.relative_to(assets)
         img = PIL.Image.open(asset)
-        new_size = map(lambda x: int(x * SCALE), img.size)
+        new_size = map(lambda x: int(x * scale), img.size)
         resized_img = img.resize(new_size, PIL.Image.LANCZOS)
-        resized_img.save(dst / asset.name)
-        os.system(f"optipng {dst / asset.name}")
+        resized_img.save(dst / name)
+
+        path = (dst / name).absolute().relative_to(ASSET_BASE.absolute())
+        # os.system(f"optipng {dst / asset.name}")
 
         data = {
             "i": i,
             "i1": i + 1,
             "name": asset.name,
             "img": resized_img,
+            "path": path,
+            "rel_path": name
         }
 
         tiles.write(
@@ -59,6 +66,12 @@ def main():
 
     tiles.write("\n[resource]\n")
     tiles.write("".join(tiles_resources))
+
+
+def main():
+    src = pathlib.Path("Assets")
+    importer(src / "Tiles", ASSET_BASE / "Tiles", 0.25)
+    importer(src / "Toppings", ASSET_BASE / "Toppings", 0.25)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Tiles/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/TileEdit.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/NextPhaseButton.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/FieldManager.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Toppings.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/CardPrefab.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="NextPhaseButton" type="Button" parent="UI"]
+margin_right = 251.0
+margin_bottom = 50.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardHand" type="CanvasLayer" parent="UI"]
+layer = 99
+
+[node name="Card1" parent="UI/CardHand" instance=ExtResource( 7 )]
+margin_left = 203.0
+margin_top = 475.0
+margin_right = 537.0
+margin_bottom = 929.0
+disabled = true
+
+[node name="Card2" parent="UI/CardHand" instance=ExtResource( 7 )]
+margin_left = 589.0
+margin_top = 475.0
+margin_right = 923.0
+margin_bottom = 929.0
+disabled = true
+cardNr = 1
+
+[node name="Card3" parent="UI/CardHand" instance=ExtResource( 7 )]
+margin_left = 983.0
+margin_top = 471.0
+margin_right = 1317.0
+margin_bottom = 925.0
+disabled = true
+cardNr = 2
+
+[node name="Card4" parent="UI/CardHand" instance=ExtResource( 7 )]
+margin_left = 1386.0
+margin_top = 484.0
+margin_right = 1720.0
+margin_bottom = 938.0
+disabled = true
+cardNr = 3
+
+[node name="Map" type="CanvasLayer" parent="."]
+
+[node name="Toppings" type="TileMap" parent="Map"]
+format = 1
+script = ExtResource( 6 )
+
+[node name="Basemap" type="TileMap" parent="Map"]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 216, 125 )
+cell_custom_transform = Transform2D( 10, 0, 0, 64, 0, 0 )
+cell_tile_origin = 2
+format = 1
+tile_data = PoolIntArray( -458745, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 458760, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Map"]
+
+[node name="GameLogic" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="CurrentPhaseLabel" type="Label" parent="GameLogic"]
+margin_left = 608.0
+margin_top = 14.0
+margin_right = 689.0
+margin_bottom = 49.0
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FieldManager" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="UI/NextPhaseButton" to="UI/NextPhaseButton" method="_on_NextPhaseButton_pressed"]
