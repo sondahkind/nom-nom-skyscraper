@@ -24,8 +24,8 @@ class Simulation:
 			for influence in field.duality_topping.get_influence():
 				i_pos = pos + influence[0]
 				var inf_field = current_map.get_tile(i_pos.x, i_pos.y)
-				inf_field.duality += influence[1]
-
+				if inf_field:
+					inf_field.duality += influence[1]
 		return map
 
 	func used_tile(x, y):

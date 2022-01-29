@@ -5,20 +5,20 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 468.0
-margin_top = 311.0
-margin_right = 567.0
-margin_bottom = 342.0
+margin_left = 859.0
+margin_top = 494.0
+margin_right = 958.0
+margin_bottom = 525.0
 text = "GEWONNEN"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 319.0
-margin_top = 355.0
-margin_right = 687.0
-margin_bottom = 459.0
+margin_left = 710.0
+margin_top = 538.0
+margin_right = 1078.0
+margin_bottom = 642.0
 text = "NOCHMAL!"
 script = ExtResource( 1 )
 __meta__ = {

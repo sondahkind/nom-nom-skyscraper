@@ -21,7 +21,9 @@ class Map:
 		# 		self.fields[_key(x, y)] = f
 
 	func get_tile(x, y):
-		return self.fields[_key(x, y)]
+		if _key(x, y) in self.fields:
+			return self.fields[_key(x, y)]
+		return null
 	
 	func _key(x: int, y: int) -> String:
 		return String(x) + "." + String(y)
