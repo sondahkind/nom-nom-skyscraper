@@ -135,31 +135,31 @@ func create_cards_and_add_to_deck():
 	hill_card.card_type = WILDERNESS
 	hill_card.card_intensity = 1
 	hill_card.card_radius = 1
-	hill_card.card_topping = "res://Assets/Toppings/Nature/token_nature_boulder.png"
+	hill_card.card_topping = Toppings.ToppingHill.new()
 
 	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun", "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png")
 	look_at_the_size_of_this_tree_card.card_type = WILDERNESS
 	look_at_the_size_of_this_tree_card.card_intensity = 1
 	look_at_the_size_of_this_tree_card.card_radius = 1
-	look_at_the_size_of_this_tree_card.card_topping = "res://Assets/Toppings/Nature/token_nature_ancienttree.png"
+	look_at_the_size_of_this_tree_card.card_topping = Toppings.ToppingBigTree.new()
 
 	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_moor.png")
 	moor_card.card_type = WILDERNESS
 	moor_card.card_intensity = 1
 	moor_card.card_radius = 1
-	moor_card.card_topping = "res://Assets/Toppings/Nature/token_nature_swamp.png"
+	moor_card.card_topping = Toppings.ToppingMoot.new()
 
 	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_nom_nom_plant.png")
 	nom_nom_plant_card.card_type = WILDERNESS
 	nom_nom_plant_card.card_intensity = 1
 	nom_nom_plant_card.card_radius = 1
-	nom_nom_plant_card.card_topping = "res://Assets/Toppings/Nature/token_nature_nomnomplant.png"
+	nom_nom_plant_card.card_topping = Toppings.ToppingNomNomPlant.new()
 
 	card_manager.add_cards_to_deck(tree_card, 5)
-	# card_manager.add_cards_to_deck(hill_card, 4)
-	# card_manager.add_cards_to_deck(look_at_the_size_of_this_tree_card, 3)
-	# card_manager.add_cards_to_deck(moor_card, 2)
-	# card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
+	card_manager.add_cards_to_deck(hill_card, 4)
+	card_manager.add_cards_to_deck(look_at_the_size_of_this_tree_card, 3)
+	card_manager.add_cards_to_deck(moor_card, 2)
+	card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
 
 	# Industrie
 	var hut_card = Card.Card.new("Hütte", "res://Assets/Cards/card_industrie_hut.png")
@@ -171,32 +171,31 @@ func create_cards_and_add_to_deck():
 	var shop_card = Card.Card.new("Geschäft", "res://Assets/Cards/card_industrie_shop.png")
 	shop_card.card_type = INDUSTRY
 	shop_card.card_intensity = 1
-	shop_card.card_radius = 1
-	shop_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
+	shop_card.card_radius = Toppings.ToppingShop.new()
 	
 	var skyscraper_card = Card.Card.new("Hochhaus", "res://Assets/Cards/card_industrie_skyscraper.png")
 	skyscraper_card.card_type = INDUSTRY
 	skyscraper_card.card_intensity = 1
 	skyscraper_card.card_radius = 1
-	skyscraper_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
+	skyscraper_card.card_topping = Toppings.ToppingSkyscraper.new()
 	
 	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png")
 	totally_not_a_trash_pile_card.card_type = INDUSTRY
 	totally_not_a_trash_pile_card.card_intensity = 1
 	totally_not_a_trash_pile_card.card_radius = 1
-	totally_not_a_trash_pile_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
+	totally_not_a_trash_pile_card.card_topping = Toppings.ToppingTrash.new()
 	
 	var fancy_power_plant = Card.Card.new("Kraftwerk", "res://Assets/Cards/card_industrie_fancy_power_plant.png")
 	fancy_power_plant.card_type = INDUSTRY
 	fancy_power_plant.card_intensity = 1
 	fancy_power_plant.card_radius = 1
-	fancy_power_plant.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
+	fancy_power_plant.card_topping = Toppings.ToppingFanyPowerPlant.new()
 
 	card_manager.add_cards_to_deck(hut_card, 5)
-	# card_manager.add_cards_to_deck(shop_card, 4)
-	# card_manager.add_cards_to_deck(skyscraper_card, 3)
-	# card_manager.add_cards_to_deck(totally_not_a_trash_pile_card, 2)
-	# card_manager.add_cards_to_deck(fancy_power_plant, 1)
+	card_manager.add_cards_to_deck(shop_card, 4)
+	card_manager.add_cards_to_deck(skyscraper_card, 3)
+	card_manager.add_cards_to_deck(totally_not_a_trash_pile_card, 2)
+	card_manager.add_cards_to_deck(fancy_power_plant, 1)
 
 
 func renderHandCards():

@@ -28,6 +28,7 @@ cell_size = Vector2( 216, 125 )
 cell_tile_origin = 2
 centered_textures = true
 format = 1
+tile_data = PoolIntArray( -196598, 5, 0 )
 script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
