@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/progressbar_neutral.png-602b47edf78beb8c38caef3bea76d669.image"
+
+[deps]
+
+source_file="res://Assets/Textures/progressbar_neutral.png"
+dest_files=[ "res://.import/progressbar_neutral.png-602b47edf78beb8c38caef3bea76d669.image" ]
+
+[params]
+
