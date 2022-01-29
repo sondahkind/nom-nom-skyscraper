@@ -41,7 +41,6 @@ func _ready():
 func _process(delta):
 	# get_node("CurrentPhaseLabel").text = "pre_phase"
 	phase_manager()
-	pass
 
 
 func phase_manager():
