@@ -15,6 +15,10 @@ class Card:
 	func set_card_values(card_name_new):
 		self.card_name = card_name_new
 	
+	func hide_card(drawing_node):
+		if (drawing_node.get_child_count() > 0):
+			drawing_node.remove_child(drawing_node.get_child(0))
+		drawing_node.disabled = true
 
 	func display_card(drawing_node):
 		if (drawing_node.get_child_count() > 0):

@@ -89,6 +89,7 @@ func draw_phase():
 
 func draw_end_phase():
 	is_in_phase = true
+	hideHandCards()
 	$CurrentPhaseLabel.set_text("draw_end_phase")
 
 func play_card_phase():
@@ -156,3 +157,6 @@ func renderHandCards():
 	var main_node = get_node("/root/Node2D/UI/CardHand")
 	card_manager.display_cards(main_node)
 	
+func hideHandCards():
+	var main_node = get_node("/root/Node2D/UI/CardHand")
+	card_manager.hide_cards(main_node)
