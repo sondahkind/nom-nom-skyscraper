@@ -4,13 +4,13 @@ class Card:
 	var card_name = "no_name"
 	var card_image = "res://Assets/Cards/card_nature_tree.png"
 	var sprite
+	var texture
 	# TODO add card stuff
 
 	# Is the constructor is calles with Card.new() an creates new object
 	func _init(card_name_new, card_image_path):
 		self.card_name = card_name_new
-		card_image = card_image_path
-		pass
+		texture = load(card_image_path)
 
 	func set_card_values(card_name_new):
 		self.card_name = card_name_new
@@ -25,7 +25,7 @@ class Card:
 			drawing_node.remove_child(drawing_node.get_child(0))
 		drawing_node.disabled = false
 		sprite = Sprite.new()
-		sprite.texture = load(card_image)
+		sprite.texture = texture
 		sprite.scale = Vector2(0.35, 0.35)
 		sprite.position.x = 167
 		sprite.position.y = 227
