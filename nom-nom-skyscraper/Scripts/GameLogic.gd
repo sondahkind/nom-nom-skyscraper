@@ -18,6 +18,8 @@ var field_manager
 
 var card_manager
 
+signal map_refresh
+
 const SETUP_PHASE = 0
 const SETUP_END_PHASE = 1
 const DRAW_PHASE = 2
@@ -113,6 +115,7 @@ func calculate_tiles():
 	print(field_manager.get_industry())
 	# this should be around 0 for a balanced game
 	print(field_manager.get_overall_values())
+	emit_signal("map_refresh")
 
 func next_phase():
 	if (currentPhase <=7):
