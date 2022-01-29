@@ -11,7 +11,6 @@ class CardManager:
 
 	func _init():
 		deck = Deck.Deck.new()
-		pass
 
 	func add_cards_to_deck(card, ammount):
 		deck.add_cards(card, ammount)
