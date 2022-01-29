@@ -10,9 +10,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_NextPhaseButton_pressed():
-	print("button was pressed")
+	#print("button was pressed")
 	var game_logic_node = get_node("/root/Node2D/GameLogic")
 	game_logic_node.next_phase()
+	print("current game phase: " + str(game_logic_node.currentPhase))
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

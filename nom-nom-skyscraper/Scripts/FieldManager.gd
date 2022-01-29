@@ -20,3 +20,17 @@ func get_overall_values():
 	for field in fields:
 		duality += field.duality
 	return duality
+
+func get_wilderness():
+	var duality = 0
+	for field in fields:
+		if field.duality > 0:
+			duality += field.duality
+	return duality
+
+func get_industry():
+	var duality = 0
+	for field in fields:
+		if field.duality < 0:
+			duality -= field.duality
+	return duality
