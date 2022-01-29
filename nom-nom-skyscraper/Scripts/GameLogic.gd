@@ -139,26 +139,31 @@ func create_cards_and_add_to_deck():
 	tree_card.card_type = WILDERNESS
 	tree_card.card_intensity = 1
 	tree_card.card_radius = 1
+	tree_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
 
 	var hill_card = Card.Card.new("Hügelchen", "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
 	hill_card.card_intensity = 1
 	hill_card.card_radius = 1
+	hill_card.card_topping = "res://Assets/Toppings/Nature/token_nature_boulder.png"
 
 	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun", "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png")
 	look_at_the_size_of_this_tree_card.card_type = WILDERNESS
 	look_at_the_size_of_this_tree_card.card_intensity = 1
 	look_at_the_size_of_this_tree_card.card_radius = 1
+	look_at_the_size_of_this_tree_card.card_topping = "res://Assets/Toppings/Nature/token_nature_ancienttree.png"
 
 	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_moor.png")
 	moor_card.card_type = WILDERNESS
 	moor_card.card_intensity = 1
 	moor_card.card_radius = 1
+	moor_card.card_topping = "res://Assets/Toppings/Nature/token_nature_swamp.png"
 
 	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_nom_nom_plant.png")
 	nom_nom_plant_card.card_type = WILDERNESS
 	nom_nom_plant_card.card_intensity = 1
 	nom_nom_plant_card.card_radius = 1
+	nom_nom_plant_card.card_topping = "res://Assets/Toppings/Nature/token_nature_nomnomplant.png"
 
 	card_manager.add_cards_to_deck(tree_card, 5)
 	card_manager.add_cards_to_deck(hill_card, 4)
@@ -171,26 +176,31 @@ func create_cards_and_add_to_deck():
 	hut_card.card_type = INDUSTRY
 	hut_card.card_intensity = 1
 	hut_card.card_radius = 1
+	hut_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
 
 	var shop_card = Card.Card.new("Geschäft", "res://Assets/Cards/card_industrie_shop.png")
 	shop_card.card_type = INDUSTRY
 	shop_card.card_intensity = 1
 	shop_card.card_radius = 1
+	shop_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
 	
 	var skyscraper_card = Card.Card.new("Hochhaus", "res://Assets/Cards/card_industrie_skyscraper.png")
 	skyscraper_card.card_type = INDUSTRY
 	skyscraper_card.card_intensity = 1
 	skyscraper_card.card_radius = 1
+	skyscraper_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
 	
 	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png")
 	totally_not_a_trash_pile_card.card_type = INDUSTRY
 	totally_not_a_trash_pile_card.card_intensity = 1
 	totally_not_a_trash_pile_card.card_radius = 1
+	totally_not_a_trash_pile_card.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
 	
 	var fancy_power_plant = Card.Card.new("Kraftwerk", "res://Assets/Cards/card_industrie_fancy_power_plant.png")
 	fancy_power_plant.card_type = INDUSTRY
 	fancy_power_plant.card_intensity = 1
 	fancy_power_plant.card_radius = 1
+	fancy_power_plant.card_topping = "res://Assets/Toppings/Nature/token_nature_tree.png"
 
 	card_manager.add_cards_to_deck(hut_card, 5)
 	card_manager.add_cards_to_deck(shop_card, 4)

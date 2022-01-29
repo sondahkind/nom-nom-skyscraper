@@ -12,6 +12,7 @@ class Card:
 	var card_type
 	var card_intensity
 	var card_radius
+	var card_topping
 	# TODO add card stuff
 
 	# Is the constructor is calles with Card.new() an creates new object
