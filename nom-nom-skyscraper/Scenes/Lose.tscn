@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/BackToStart.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 815.0
+margin_top = 498.0
+margin_right = 914.0
+margin_bottom = 529.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "VERLOREN!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 666.0
+margin_top = 542.0
+margin_right = 1034.0
+margin_bottom = 646.0
+text = "NOCHMAL!"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

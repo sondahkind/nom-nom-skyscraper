@@ -1,7 +1,10 @@
 extends Object
 
 class CardManager:
-
+	# amount of cards we want to play
+	const PLAY_CARDS = 7
+	var cards_played = 0
+	
 	var Card = preload("Card.gd")
 	const Deck = preload("Deck.gd")
 	var current_card
@@ -27,9 +30,12 @@ class CardManager:
 		hide_cards(card_node.get_parent())
 		# remove card from deck
 		hand_cards.remove(nr)
+		cards_played += 1
 		# end draw phase
 		game_logic_node.next_phase()
 
+	func game_finished():
+		return cards_played >= PLAY_CARDS
 	
 	func draw_cards(numberOfCards):
 		# draw hand cards

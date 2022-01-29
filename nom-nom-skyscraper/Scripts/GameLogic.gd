@@ -41,7 +41,6 @@ func _ready():
 func _process(delta):
 	# get_node("CurrentPhaseLabel").text = "pre_phase"
 	phase_manager()
-	pass
 
 
 func phase_manager():
@@ -106,7 +105,14 @@ func calculation_phase():
 	is_in_phase = true
 	Global.sim.tick()
 	Global.bus.emit_map_refresh()
-	print(Global.sim.stats())
+	var stats = Global.sim.stats()
+	print(stats)
+	if card_manager.game_finished():
+		# calculate if player won or loose
+		if (abs(stats["duality"]) > 10):
+			get_tree().change_scene("res://Scenes/Lose.tscn")
+		else:
+			get_tree().change_scene("res://Scenes/Win.tscn")
 	$CurrentPhaseLabel.set_text("calculation_phase")
 	next_phase()
 
