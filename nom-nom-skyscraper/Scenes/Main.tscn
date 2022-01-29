@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Tiles/tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/TileEdit.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/NextPhaseButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/FieldManager.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/map/Toppings.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/CardPrefab.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Toppings/tiles.tres" type="TileSet" id=8]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Node2D" parent="Map" instance=ExtResource( 1 )]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -54,28 +56,6 @@ margin_bottom = 925.0
 disabled = true
 cardNr = 3
 
-[node name="Map" type="CanvasLayer" parent="."]
-
-[node name="Basemap" type="TileMap" parent="Map"]
-mode = 1
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 216, 125 )
-cell_custom_transform = Transform2D( 10, 0, 0, 64, 0, 0 )
-cell_tile_origin = 2
-format = 1
-tile_data = PoolIntArray( -458745, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -196605, 1, 0, -196604, 1, 0, -196603, 1, 0, -196602, 1, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 2, 0, 65547, 2, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 2, 0, 131083, 2, 0, 131084, 1, 0, 131085, 0, 0, 196612, 1, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 2, 0, 196619, 2, 0, 196620, 1, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 2, 0, 327686, 0, 0, 327687, 2, 0, 327688, 2, 0, 327689, 2, 0, 327690, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 458760, 2, 0 )
-script = ExtResource( 2 )
-
-[node name="Toppings" type="TileMap" parent="Map"]
-mode = 1
-tile_set = ExtResource( 8 )
-cell_size = Vector2( 216, 125 )
-format = 1
-tile_data = PoolIntArray( -131066, 1, 0, -65531, 0, 0, 131076, 0, 0 )
-script = ExtResource( 6 )
-
-[node name="Camera2D" type="Camera2D" parent="Map"]
-
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource( 4 )
 
@@ -91,5 +71,10 @@ __meta__ = {
 
 [node name="FieldManager" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 800, 500 )
+current = true
+script = ExtResource( 2 )
 
 [connection signal="pressed" from="UI/NextPhaseButton" to="UI/NextPhaseButton" method="_on_NextPhaseButton_pressed"]
