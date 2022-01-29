@@ -2,7 +2,7 @@ extends Object
 
 class CardManager:
 	# amount of cards we want to play
-	const PLAY_CARDS = 7
+	export var play_cards = 15
 	var cards_played = 0
 	
 	var Card = preload("Card.gd")
@@ -35,7 +35,7 @@ class CardManager:
 		game_logic_node.next_phase()
 
 	func game_finished():
-		return cards_played >= PLAY_CARDS
+		return cards_played >= play_cards
 	
 	func draw_cards(numberOfCards):
 		# draw hand cards
@@ -50,14 +50,14 @@ class CardManager:
 		var x=0
 		for card in hand_cards:
 			card.display_card(drawing_node.get_child(x))
-			x = x+1
+			x = x + 1
 
 	func hide_cards(drawing_node):
 		# hide all hand cards
 		var x=0
 		for card in hand_cards:
 			card.hide_card(drawing_node.get_child(x))
-			x = x+1
+			x = x + 1
 
 	func get_hand_size():
 		return hand_cards.size()
