@@ -258,7 +258,7 @@ class ToppingSkyscraper extends BaseTopping:
 
 class ToppingTrash extends BaseTopping:
 	func _init():
-		tile_index = 3
+		tile_index = 4
 		duality = INDUSTRY
 
 	func get_influence():
@@ -276,7 +276,7 @@ class ToppingTrash extends BaseTopping:
 
 class ToppingFanyPowerPlant extends BaseTopping:
 	func _init():
-		tile_index = 4
+		tile_index = 3
 		duality = INDUSTRY
 
 	func get_influence():
