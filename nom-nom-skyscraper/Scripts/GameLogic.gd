@@ -31,13 +31,16 @@ const INDUSTRY = 0
 const WILDERNESS = 1
 
 var UI_CardIDs
+var map_progress
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	UI_CardIDs = get_node("/root/UI_CardIDs")
 	var ui_hand_cards_node = get_node("../UI/HandCards")
+	map_progress = get_node("../UI/MapProgress")
 	Global.bus.emit_map_refresh()
 	card_manager = CardManager.CardManager.new(ui_hand_cards_node)
+	
 	currentPhase = SETUP_PHASE
 	phase_manager()
 
@@ -105,6 +108,8 @@ func calculation_phase():
 	Global.bus.emit_map_refresh()
 	var stats = Global.sim.stats()
 	print(stats)
+	map_progress.set_industry_progress(stats["industry_perc"])
+	map_progress.set_nature_progress(stats["wilderness_perc"])
 	if card_manager.game_finished():
 		# calculate if player won or loose
 		if (abs(stats["duality"]) > 10):
