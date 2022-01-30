@@ -40,3 +40,5 @@ script = ExtResource( 4 )
 offset = Vector2( 800, 500 )
 current = true
 script = ExtResource( 2 )
+
+[connection signal="card_clicked" from="UI/HandCards" to="GameLogic" method="_on_HandCards_card_clicked"]

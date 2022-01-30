@@ -23,8 +23,9 @@ class CardManager:
 	func shuffle_deck():
 		deck.shuffle()
 	
-	func play_card(game_logic_node, card_node: TextureButton):
-		var nr = card_node.cardNr
+	func play_card(game_logic_node, card_nr):
+		var nr = card_nr
+		print(card_nr)
 		# play a hand card
 		var card = hand_cards[nr]
 		current_card = card

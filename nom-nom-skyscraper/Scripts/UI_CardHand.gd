@@ -43,6 +43,8 @@ var _preloaded_textures = {}
 # runtime
 var hovered_card
 
+var current_card_nr = 0
+
 
 func set_cards(new_cards):
 	"""
@@ -118,7 +120,7 @@ func _on_button_clicked():
 	var card_under_mouse = _get_hovered_node()
 	var card_id = _card_id_from_node(card_under_mouse)
 	print_debug("Emitting click signal for card {c_id}".format({"c_id": card_id}))
-	emit_signal("card_clicked", card_id)
+	emit_signal("card_clicked", current_card_nr)
 
 
 func _card_id_from_node(node):
@@ -126,7 +128,9 @@ func _card_id_from_node(node):
 
 
 func _get_hovered_node():
+	current_card_nr = 0
 	for child in get_children():
+		current_card_nr = current_card_nr + 1 
 		if child.is_hovered():
 			return child
 

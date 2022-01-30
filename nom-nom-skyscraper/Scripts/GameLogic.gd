@@ -207,3 +207,7 @@ func hideHandCards():
 
 func get_card_manager():
 	return card_manager
+
+
+func _on_HandCards_card_clicked(card_id):
+	card_manager.play_card(self, (card_id-2))
