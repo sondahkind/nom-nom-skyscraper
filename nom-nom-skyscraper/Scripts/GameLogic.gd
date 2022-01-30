@@ -81,6 +81,8 @@ func setup_phase():
 func setup_end_phase():
 	is_in_phase = true
 	card_manager.draw_cards(ammount_of_cards_drawn_at_start)
+	create_hut_and_tree_and_add_to_deck()
+	card_manager.shuffle_deck()
 	next_phase()
 
 func draw_phase():
@@ -134,9 +136,7 @@ func next_phase():
 
 func create_cards_and_add_to_deck():
 	# Wilderness
-	var tree_card = Card.Card.new("Baum", UI_CardIDs.TREE, "res://Assets/Cards/card_nature_tree.png")
-	tree_card.card_type = WILDERNESS
-	tree_card.card_topping = Toppings.ToppingTree.new()
+
 
 	var hill_card = Card.Card.new("Hügelchen", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
@@ -162,17 +162,12 @@ func create_cards_and_add_to_deck():
 	nom_nom_plant_card.card_type = WILDERNESS
 	nom_nom_plant_card.card_topping = Toppings.ToppingNomNomPlant.new()
 
-	card_manager.add_cards_to_deck(tree_card, 5)
 	card_manager.add_cards_to_deck(hill_card, 4)
 	card_manager.add_cards_to_deck(look_at_the_size_of_this_tree_card, 3)
 	card_manager.add_cards_to_deck(moor_card, 2)
 	card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
 
 	# Industrie
-	var hut_card = Card.Card.new("Hütte", UI_CardIDs.HUT, "res://Assets/Cards/card_industrie_hut.png")
-	hut_card.card_type = INDUSTRY
-	hut_card.card_topping = Toppings.ToppingHut.new()
-
 	var shop_card = Card.Card.new("Geschäft", UI_CardIDs.SHOP, "res://Assets/Cards/card_industrie_shop.png")
 	shop_card.card_type = INDUSTRY
 	shop_card.card_topping = Toppings.ToppingShop.new()
@@ -197,11 +192,21 @@ func create_cards_and_add_to_deck():
 	fancy_power_plant.card_type = INDUSTRY
 	fancy_power_plant.card_topping = Toppings.ToppingFanyPowerPlant.new()
 
-	card_manager.add_cards_to_deck(hut_card, 5)
 	card_manager.add_cards_to_deck(shop_card, 4)
 	card_manager.add_cards_to_deck(skyscraper_card, 3)
 	card_manager.add_cards_to_deck(totally_not_a_trash_pile_card, 2)
 	card_manager.add_cards_to_deck(fancy_power_plant, 1)
+
+func create_hut_and_tree_and_add_to_deck():
+	var tree_card = Card.Card.new("Baum", UI_CardIDs.TREE, "res://Assets/Cards/card_nature_tree.png")
+	tree_card.card_type = WILDERNESS
+	tree_card.card_topping = Toppings.ToppingTree.new()
+	card_manager.add_cards_to_deck(tree_card, 5)
+
+	var hut_card = Card.Card.new("Hütte", UI_CardIDs.HUT, "res://Assets/Cards/card_industrie_hut.png")
+	hut_card.card_type = INDUSTRY
+	hut_card.card_topping = Toppings.ToppingHut.new()
+	card_manager.add_cards_to_deck(hut_card, 5)
 
 
 func renderHandCards():
