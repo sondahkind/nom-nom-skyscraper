@@ -73,6 +73,7 @@ func phase_manager():
 
 func setup_phase():
 	is_in_phase = true
+	card_manager.number_cards_left = get_node("../UI/CardNumber/CardsLeft")
 	create_cards_and_add_to_deck()
 	card_manager.shuffle_deck()
 	#Basic Deck filling example
@@ -81,6 +82,8 @@ func setup_phase():
 func setup_end_phase():
 	is_in_phase = true
 	card_manager.draw_cards(ammount_of_cards_drawn_at_start)
+	create_hut_and_tree_and_add_to_deck()
+	card_manager.shuffle_deck()
 	next_phase()
 
 func draw_phase():
@@ -108,15 +111,62 @@ func calculation_phase():
 	Global.bus.emit_map_refresh()
 	var stats = Global.sim.stats()
 	print(stats)
+	var would_win = _current_win(stats)
+	print("-> win? ", would_win)
 	map_progress.set_industry_progress(stats["industry_perc"])
 	map_progress.set_nature_progress(stats["wilderness_perc"])
-	if card_manager.game_finished():
-		# calculate if player won or loose
-		if (abs(stats["duality"]) > 10):
-			get_tree().change_scene("res://Scenes/Lose.tscn")
+
+	var pulse_wilderness = false
+	var pulse_industry = false
+	if !would_win:
+		if stats["industry_perc"] > stats["wilderness_perc"]:
+			pulse_wilderness = true
 		else:
+			pulse_industry = true
+
+	if stats["industry_perc"] < 25:
+		pulse_industry = true
+
+	if stats["wilderness_perc"] < 25:
+		pulse_wilderness = true
+	
+	print("pulse", pulse_wilderness, pulse_industry)
+
+	var game_finished = card_manager.game_finished()
+	if stats["industry_perc"] > 75:
+		game_finished = true
+
+	if stats["wilderness_perc"] > 75:
+		game_finished = true
+
+	if game_finished:
+		# calculate if player won or loose
+		if _current_win(stats):
 			get_tree().change_scene("res://Scenes/Win.tscn")
+		else:
+			get_tree().change_scene("res://Scenes/Lose.tscn")
 	next_phase()
+
+
+func _current_win(stats):
+	if stats["industry_perc"] > 75:
+		return false
+
+	if stats["industry_perc"] < 25:
+		return false
+
+	if stats["wilderness_perc"] > 75:
+		return false
+
+	if stats["wilderness_perc"] < 25:
+		return false
+
+	var perc_point_diff = stats["wilderness_perc"] - stats["industry_perc"]
+
+	if perc_point_diff > 25:
+		return false
+	
+	return true
 
 func calculation_end_phase():
 	is_in_phase = true
@@ -134,13 +184,11 @@ func next_phase():
 
 func create_cards_and_add_to_deck():
 	# Wilderness
-	var tree_card = Card.Card.new("Baum", UI_CardIDs.TREE, "res://Assets/Cards/card_nature_tree.png")
-	tree_card.card_type = WILDERNESS
-	tree_card.card_topping = Toppings.ToppingTree.new()
 
-	var hill_card = Card.Card.new("Hügelchen", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+
+	var hill_card = Card.Card.new("Stinkepflanze", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
-	hill_card.card_topping = Toppings.ToppingHill.new()
+	hill_card.card_topping = Toppings.ToppingStinkPlant.new()
 
 	var look_at_the_size_of_this_tree_card = Card.Card.new(
 		"Jahrhundertbaun",
@@ -162,17 +210,12 @@ func create_cards_and_add_to_deck():
 	nom_nom_plant_card.card_type = WILDERNESS
 	nom_nom_plant_card.card_topping = Toppings.ToppingNomNomPlant.new()
 
-	card_manager.add_cards_to_deck(tree_card, 5)
 	card_manager.add_cards_to_deck(hill_card, 4)
 	card_manager.add_cards_to_deck(look_at_the_size_of_this_tree_card, 3)
 	card_manager.add_cards_to_deck(moor_card, 2)
 	card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
 
 	# Industrie
-	var hut_card = Card.Card.new("Hütte", UI_CardIDs.HUT, "res://Assets/Cards/card_industrie_hut.png")
-	hut_card.card_type = INDUSTRY
-	hut_card.card_topping = Toppings.ToppingHut.new()
-
 	var shop_card = Card.Card.new("Geschäft", UI_CardIDs.SHOP, "res://Assets/Cards/card_industrie_shop.png")
 	shop_card.card_type = INDUSTRY
 	shop_card.card_topping = Toppings.ToppingShop.new()
@@ -197,11 +240,21 @@ func create_cards_and_add_to_deck():
 	fancy_power_plant.card_type = INDUSTRY
 	fancy_power_plant.card_topping = Toppings.ToppingFanyPowerPlant.new()
 
-	card_manager.add_cards_to_deck(hut_card, 5)
 	card_manager.add_cards_to_deck(shop_card, 4)
 	card_manager.add_cards_to_deck(skyscraper_card, 3)
 	card_manager.add_cards_to_deck(totally_not_a_trash_pile_card, 2)
 	card_manager.add_cards_to_deck(fancy_power_plant, 1)
+
+func create_hut_and_tree_and_add_to_deck():
+	var tree_card = Card.Card.new("Baum", UI_CardIDs.TREE, "res://Assets/Cards/card_nature_tree.png")
+	tree_card.card_type = WILDERNESS
+	tree_card.card_topping = Toppings.ToppingTree.new()
+	card_manager.add_cards_to_deck(tree_card, 5)
+
+	var hut_card = Card.Card.new("Hütte", UI_CardIDs.HUT, "res://Assets/Cards/card_industrie_hut.png")
+	hut_card.card_type = INDUSTRY
+	hut_card.card_topping = Toppings.ToppingHut.new()
+	card_manager.add_cards_to_deck(hut_card, 5)
 
 
 func renderHandCards():

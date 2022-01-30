@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/UI_CardHand.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GameLogic.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MapProgress_Prefab.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/ui/card_icon.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/nimbus/NimbusSanL-Bol.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 7 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,6 +38,34 @@ __meta__ = {
 }
 
 [node name="MapProgress" parent="UI" instance=ExtResource( 5 )]
+
+[node name="CardNumber" type="Control" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardIcon" type="Sprite" parent="UI/CardNumber"]
+position = Vector2( -68, 45 )
+texture = ExtResource( 6 )
+
+[node name="CardIcon2" type="Sprite" parent="UI/CardNumber"]
+position = Vector2( -43, 74 )
+rotation = 0.41524
+texture = ExtResource( 6 )
+
+[node name="CardsLeft" type="Label" parent="UI/CardNumber"]
+margin_left = -600.0
+margin_top = 16.0
+margin_right = -112.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource( 4 )
