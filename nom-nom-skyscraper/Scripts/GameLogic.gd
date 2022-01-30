@@ -186,9 +186,9 @@ func create_cards_and_add_to_deck():
 	# Wilderness
 
 
-	var hill_card = Card.Card.new("Hügelchen", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+	var hill_card = Card.Card.new("Stinkepflanze", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
-	hill_card.card_topping = Toppings.ToppingHill.new()
+	hill_card.card_topping = Toppings.ToppingStinkPlant.new()
 
 	var look_at_the_size_of_this_tree_card = Card.Card.new(
 		"Jahrhundertbaun",

@@ -35,7 +35,7 @@ class ToppingTree extends BaseTopping:
 			[Vector2(-1, 1), 1],
 		]
 
-class ToppingHill extends BaseTopping:
+class ToppingStinkPlant extends BaseTopping:
 	func _init():
 		tile_index = 13
 		duality = WILDERNESS
