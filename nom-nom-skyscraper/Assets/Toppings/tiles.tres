@@ -232,7 +232,7 @@
 14/texture = ExtResource( 15 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
-14/region = Rect2( 0, 0, 253, 338 )
+14/region = Rect2( 0, 0, 253, 390 )
 14/tile_mode = 0
 14/occluder_offset = Vector2( 128, 64 )
 14/navigation_offset = Vector2( 128, 64 )
