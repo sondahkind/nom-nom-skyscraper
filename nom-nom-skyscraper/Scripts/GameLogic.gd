@@ -192,7 +192,7 @@ func create_cards_and_add_to_deck():
 	card_manager.add_cards_to_deck(hill_card, 6)
 
 	# Wilderness
-	var stinkplant_card = Card.Card.new("Stinkepflanze", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+	var stinkplant_card = Card.Card.new("Stinkepflanze", UI_CardIDs.STINKPLANT, "res://Assets/Cards/card_nature_stinkplant.png")
 	stinkplant_card.card_type = WILDERNESS
 	stinkplant_card.card_topping = Toppings.ToppingStinkPlant.new()
 
