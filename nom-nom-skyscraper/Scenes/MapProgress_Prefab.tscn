@@ -10,8 +10,17 @@
 layer = 2
 script = ExtResource( 4 )
 
-[node name="BorderPixel" type="Sprite" parent="."]
-position = Vector2( 960.5, 55 )
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BorderPixel" type="Sprite" parent="Control"]
+position = Vector2( 0, 55 )
 scale = Vector2( 524, 60 )
 texture = ExtResource( 5 )
 
@@ -30,9 +39,11 @@ __meta__ = {
 }
 
 [node name="NatureProgress" type="TextureProgress" parent="."]
-margin_left = 704.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -256.0
 margin_top = 30.0
-margin_right = 1216.0
+margin_right = 256.0
 margin_bottom = 80.0
 texture_progress = ExtResource( 3 )
 __meta__ = {
