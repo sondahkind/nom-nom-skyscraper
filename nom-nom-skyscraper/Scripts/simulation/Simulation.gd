@@ -23,6 +23,8 @@ class Simulation:
 				continue
 			field.duality_topping = prev_field.duality_topping
 			var i_pos
+			if field.duality_topping.absolute_influence:
+				continue
 			for influence in field.duality_topping.get_influence():
 				i_pos = pos + influence[0]
 				var inf_field = current_map.get_tile(i_pos.x, i_pos.y)
@@ -61,6 +63,32 @@ class Simulation:
 			else:
 				field.duality_topping = toppings.ToppingYoungTree.new()
 				print("Young Tree!")
+
+		# recalculate duality
+		for field in current_map.fields.values():
+			if field.duality_topping.absolute_influence:
+				continue
+
+			var i_pos
+			var pos = field.pos
+			for influence in field.duality_topping.get_influence():
+				i_pos = pos + influence[0]
+				var inf_field = current_map.get_tile(i_pos.x, i_pos.y)
+				if inf_field:
+					inf_field.duality += influence[1]
+
+		# absolute influence
+		for field in current_map.fields.values():
+			if !field.duality_topping.absolute_influence:
+				continue
+
+			var i_pos
+			var pos = field.pos
+			for influence in field.duality_topping.get_influence():
+				i_pos = pos + influence[0]
+				var inf_field = current_map.get_tile(i_pos.x, i_pos.y)
+				if inf_field:
+					inf_field.duality = influence[1]
 
 		return map
 
