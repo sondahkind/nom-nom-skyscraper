@@ -86,26 +86,4 @@ func _show_preview(pos, card_topping):
 
 	var current_card = game_logic.get_card_manager().current_card
 
-# func set_type(x, y, type):
-# 	var field = field_manager.get_field(x, y)
-# 	if not field:
-# 		return
-# 	if type == INDUSTRY:
-# 		field.add_industry(1)
-# 	elif type == WILDERNESS:
-# 		field.add_wilderness(1)
-# 	self.set_cell(x, y, type)
-
-# func set_tiles(pos, type):
-# 	set_type(pos.x, pos.y, -1)
-# 	print("M update: ", pos[0], ",", pos[1])
-# 	set_type(pos.x+1, pos.y, type)
-# 	set_type(pos.x-1, pos.y, type)
-# 	set_type(pos.x, pos.y+1, type)
-# 	set_type(pos.x, pos.y-1, type)
-	
-# 	set_type(pos.x+1, pos.y+1, type)
-# 	set_type(pos.x+1, pos.y-1, type)
-# 	set_type(pos.x-1, pos.y+1, type)
-# 	set_type(pos.x-1, pos.y-1, type)
 
