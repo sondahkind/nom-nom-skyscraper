@@ -11,10 +11,16 @@ class BaseTopping:
 		return []
 	
 
+class ToppingYoungTree extends BaseTopping:
+	func _init():
+		duality = WILDERNESS
+		tile_index = 14
+
+
 class ToppingTree extends BaseTopping:
 	func _init():
 		duality = WILDERNESS
-		tile_index = 5
+		tile_index = 6
 
 	func get_influence():
 		return [
@@ -31,7 +37,7 @@ class ToppingTree extends BaseTopping:
 
 class ToppingHill extends BaseTopping:
 	func _init():
-		tile_index = 6
+		tile_index = 7
 		duality = WILDERNESS
 
 	func get_influence():
@@ -58,7 +64,7 @@ class ToppingHill extends BaseTopping:
 class ToppingBigTree extends BaseTopping:
 	func _init():
 		duality = WILDERNESS
-		tile_index = 7
+		tile_index = 8
 
 	func get_influence():
 		return [
@@ -92,7 +98,7 @@ class ToppingBigTree extends BaseTopping:
 class ToppingSwamp extends BaseTopping:
 	func _init():
 		duality = WILDERNESS
-		tile_index = 8
+		tile_index = 9
 
 	func get_influence():
 		return [
@@ -110,11 +116,11 @@ class ToppingSwamp extends BaseTopping:
 class ToppingNomNomPlant extends BaseTopping:
 	func _init():
 		duality = WILDERNESS
-		tile_index = 9
+		tile_index = 10
 
 	func get_influence():
 		return [
-			[Vector2(0, 0), 5],
+			[Vector2(0, 0), 1],
 			[Vector2(0, 1), 3],
 			[Vector2(1, 0), 3],
 			[Vector2(-1, 0), 3],
@@ -140,6 +146,12 @@ class ToppingNomNomPlant extends BaseTopping:
 			[Vector2(-2, -1), 2],
 			[Vector2(-1, -2), 2],
 		]
+
+class ToppingConstructionSide extends BaseTopping:
+	func _init():
+		duality = INDUSTRY
+		tile_index = 5
+
 
 class ToppingHut extends BaseTopping:
 	func _init():
@@ -226,15 +238,15 @@ class ToppingTrash extends BaseTopping:
 
 	func get_influence():
 		return [
-			[Vector2(0, 0), -5],
-			[Vector2(0, 1), -5],
-			[Vector2(1, 0), -5],
-			[Vector2(-1, 0), -5],
-			[Vector2(0, -1), -5],
-			[Vector2(-1, -1), -5],
-			[Vector2(1, -1), -5],
-			[Vector2(1, 1), -5],
-			[Vector2(-1, 1), -5],
+			[Vector2(0, 0), -3],
+			[Vector2(0, 1), -3],
+			[Vector2(1, 0), -3],
+			[Vector2(-1, 0), -3],
+			[Vector2(0, -1), -3],
+			[Vector2(-1, -1), -3],
+			[Vector2(1, -1), -3],
+			[Vector2(1, 1), -3],
+			[Vector2(-1, 1), -3],
 		]
 
 class ToppingFanyPowerPlant extends BaseTopping:
@@ -244,7 +256,7 @@ class ToppingFanyPowerPlant extends BaseTopping:
 
 	func get_influence():
 		return [
-			[Vector2(0, 0), -5],
+			[Vector2(0, 0), -1],
 			[Vector2(0, 1), -3],
 			[Vector2(1, 0), -3],
 			[Vector2(-1, 0), -3],

@@ -1,18 +1,20 @@
-[gd_resource type="TileSet" load_steps=14 format=2]
+[gd_resource type="TileSet" load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Toppings/Industrie/11_token_industrie_hut.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Toppings/Industrie/12_token_industrie_shop.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Toppings/Industrie/13_token_industrie_skyscraper.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Toppings/Industrie/15_token_industrie_fancy_power_plant.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Toppings/Industrie/15_token_industrie_totally_not_a_trash_pile.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Toppings/Nature/01_token_nature_tree.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Toppings/Nature/02_token_nature_boulder.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Toppings/Nature/03_token_nature_ancienttree.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Toppings/Nature/04_token_nature_swamp.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Toppings/Nature/05_token_nature_nomnomplant.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Toppings/Nature/06_token_nature_fairyring.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Toppings/Nature/07_token_nature_pond.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Toppings/Nature/08_token_nature_stinkplant.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Toppings/Industrie/16_token_industrie_hut_construction.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Toppings/Nature/01_token_nature_tree.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Toppings/Nature/02_token_nature_boulder.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Toppings/Nature/03_token_nature_ancienttree.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Toppings/Nature/04_token_nature_swamp.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Toppings/Nature/05_token_nature_nomnomplant.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Toppings/Nature/06_token_nature_fairyring.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Toppings/Nature/07_token_nature_pond.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Toppings/Nature/08_token_nature_stinkplant.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Toppings/Nature/09_young_tree.png" type="Texture" id=15]
 
 [resource]
 0/name = "11_token_industrie_hut.png"
@@ -85,11 +87,11 @@
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
-5/name = "01_token_nature_tree.png"
+5/name = "16_token_industrie_hut_construction.png"
 5/texture = ExtResource( 6 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 0, 0, 253, 338 )
+5/region = Rect2( 0, 0, 253, 390 )
 5/tile_mode = 0
 5/occluder_offset = Vector2( 128, 64 )
 5/navigation_offset = Vector2( 128, 64 )
@@ -99,11 +101,11 @@
 5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
-6/name = "02_token_nature_boulder.png"
+6/name = "01_token_nature_tree.png"
 6/texture = ExtResource( 7 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 0, 0, 253, 390 )
+6/region = Rect2( 0, 0, 253, 338 )
 6/tile_mode = 0
 6/occluder_offset = Vector2( 128, 64 )
 6/navigation_offset = Vector2( 128, 64 )
@@ -113,7 +115,7 @@
 6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
-7/name = "03_token_nature_ancienttree.png"
+7/name = "02_token_nature_boulder.png"
 7/texture = ExtResource( 8 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
@@ -127,7 +129,7 @@
 7/shape_one_way_margin = 0.0
 7/shapes = [  ]
 7/z_index = 0
-8/name = "04_token_nature_swamp.png"
+8/name = "03_token_nature_ancienttree.png"
 8/texture = ExtResource( 9 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
@@ -141,7 +143,7 @@
 8/shape_one_way_margin = 0.0
 8/shapes = [  ]
 8/z_index = 0
-9/name = "05_token_nature_nomnomplant.png"
+9/name = "04_token_nature_swamp.png"
 9/texture = ExtResource( 10 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
@@ -155,7 +157,7 @@
 9/shape_one_way_margin = 0.0
 9/shapes = [  ]
 9/z_index = 0
-10/name = "06_token_nature_fairyring.png"
+10/name = "05_token_nature_nomnomplant.png"
 10/texture = ExtResource( 11 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
@@ -169,7 +171,7 @@
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
-11/name = "07_token_nature_pond.png"
+11/name = "06_token_nature_fairyring.png"
 11/texture = ExtResource( 12 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
@@ -183,11 +185,11 @@
 11/shape_one_way_margin = 0.0
 11/shapes = [  ]
 11/z_index = 0
-12/name = "08_token_nature_stinkplant.png"
+12/name = "07_token_nature_pond.png"
 12/texture = ExtResource( 13 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
-12/region = Rect2( 0, 0, 243, 258 )
+12/region = Rect2( 0, 0, 253, 390 )
 12/tile_mode = 0
 12/occluder_offset = Vector2( 128, 64 )
 12/navigation_offset = Vector2( 128, 64 )
@@ -197,3 +199,31 @@
 12/shape_one_way_margin = 0.0
 12/shapes = [  ]
 12/z_index = 0
+13/name = "08_token_nature_stinkplant.png"
+13/texture = ExtResource( 14 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 0, 243, 258 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 128, 64 )
+13/navigation_offset = Vector2( 128, 64 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "09_young_tree.png"
+14/texture = ExtResource( 15 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 0, 253, 338 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 128, 64 )
+14/navigation_offset = Vector2( 128, 64 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
