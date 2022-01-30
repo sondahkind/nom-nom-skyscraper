@@ -141,9 +141,9 @@ func calculation_phase():
 	if game_finished:
 		# calculate if player won or loose
 		if _current_win(stats):
-			get_tree().change_scene("res://Scenes/Lose.tscn")
-		else:
 			get_tree().change_scene("res://Scenes/Win.tscn")
+		else:
+			get_tree().change_scene("res://Scenes/Lose.tscn")
 	next_phase()
 
 
