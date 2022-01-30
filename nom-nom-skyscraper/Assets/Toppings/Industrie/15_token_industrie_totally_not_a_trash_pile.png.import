@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/token_nature_stinkplant.png-208aea693d0cf892a5d361d7b29ce063.stex"
+path="res://.import/15_token_industrie_totally_not_a_trash_pile.png-2e4b1c71a7aa344fb72d2eaa0233dee8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Toppings/Nature/token_nature_stinkplant.png"
-dest_files=[ "res://.import/token_nature_stinkplant.png-208aea693d0cf892a5d361d7b29ce063.stex" ]
+source_file="res://Assets/Toppings/Industrie/15_token_industrie_totally_not_a_trash_pile.png"
+dest_files=[ "res://.import/15_token_industrie_totally_not_a_trash_pile.png-2e4b1c71a7aa344fb72d2eaa0233dee8.stex" ]
 
 [params]
 

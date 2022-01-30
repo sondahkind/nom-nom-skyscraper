@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/token_nature_boulder.png-4ad0e8fbfeec078626d19e2c587f3d9b.stex"
+path="res://.import/03_token_nature_ancienttree.png-2c029fcb55921e2bbbd07852129a9ba5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Toppings/Nature/token_nature_boulder.png"
-dest_files=[ "res://.import/token_nature_boulder.png-4ad0e8fbfeec078626d19e2c587f3d9b.stex" ]
+source_file="res://Assets/Toppings/Nature/03_token_nature_ancienttree.png"
+dest_files=[ "res://.import/03_token_nature_ancienttree.png-2c029fcb55921e2bbbd07852129a9ba5.stex" ]
 
 [params]
 

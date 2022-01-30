@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/token_nature_fairyring.png-ab44fe4af82d8a83fa30de70af3547a5.stex"
+path="res://.import/06_token_nature_fairyring.png-606c18afb0f3a19fe25444a37d92ab92.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Toppings/Nature/token_nature_fairyring.png"
-dest_files=[ "res://.import/token_nature_fairyring.png-ab44fe4af82d8a83fa30de70af3547a5.stex" ]
+source_file="res://Assets/Toppings/Nature/06_token_nature_fairyring.png"
+dest_files=[ "res://.import/06_token_nature_fairyring.png-606c18afb0f3a19fe25444a37d92ab92.stex" ]
 
 [params]
 

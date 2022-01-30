@@ -5,6 +5,14 @@ class Card:
 	var card_image = "res://Assets/Cards/card_nature_tree.png"
 	var sprite
 	var texture
+
+	const INDUSTRY = 0
+	const WILDERNESS = 1
+
+	var card_type
+	var card_intensity
+	var card_radius
+	var card_topping
 	# TODO add card stuff
 
 	# Is the constructor is calles with Card.new() an creates new object
@@ -18,11 +26,13 @@ class Card:
 	func hide_card(drawing_node):
 		if (drawing_node.get_child_count() > 0):
 			drawing_node.remove_child(drawing_node.get_child(0))
+		drawing_node.visible = false
 		drawing_node.disabled = true
 
 	func display_card(drawing_node):
 		if (drawing_node.get_child_count() > 0):
 			drawing_node.remove_child(drawing_node.get_child(0))
+		drawing_node.visible = true
 		drawing_node.disabled = false
 		sprite = Sprite.new()
 		sprite.texture = texture

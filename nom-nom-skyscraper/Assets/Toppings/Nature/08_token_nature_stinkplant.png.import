@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/token_nature_pond.png-705869ef01dde2a3266a8bfda5ec5ca9.stex"
+path="res://.import/08_token_nature_stinkplant.png-c71210731644e2dfb49555977f584490.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Toppings/Nature/token_nature_pond.png"
-dest_files=[ "res://.import/token_nature_pond.png-705869ef01dde2a3266a8bfda5ec5ca9.stex" ]
+source_file="res://Assets/Toppings/Nature/08_token_nature_stinkplant.png"
+dest_files=[ "res://.import/08_token_nature_stinkplant.png-c71210731644e2dfb49555977f584490.stex" ]
 
 [params]
 

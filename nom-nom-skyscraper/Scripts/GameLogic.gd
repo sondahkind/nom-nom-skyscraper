@@ -8,17 +8,15 @@ var buttonLabel = "Placeholder"
 var currentPhase = 0
 var is_in_phase = false
 
-var ammount_of_cards_drawn_at_start = 2
-var ammount_of_cards_drawn_at_draw_phase = 1
-var max_hand_size = 4
+export var ammount_of_cards_drawn_at_start = 3
+export var ammount_of_cards_drawn_at_draw_phase = 1
+export var max_hand_size = 4
 
 var Card = preload("Card.gd")
 const CardManager = preload("CardManager.gd")
-var field_manager
+const Toppings = preload("simulation/Toppings.gd")
 
 var card_manager
-
-signal map_refresh
 
 const SETUP_PHASE = 0
 const SETUP_END_PHASE = 1
@@ -29,20 +27,21 @@ const PLAY_CARD_END_PHASE = 5
 const CALCULATION_PHASE = 6
 const CALCULATION_END_PHASE = 7
 
+const INDUSTRY = 0
+const WILDERNESS = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	field_manager = get_node("/root/Node2D/FieldManager")
+	Global.bus.emit_map_refresh()
 	card_manager = CardManager.CardManager.new()
 	currentPhase = SETUP_PHASE
 	phase_manager()
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# get_node("CurrentPhaseLabel").text = "pre_phase"
 	phase_manager()
-	pass
+
 
 func phase_manager():
 	if (is_in_phase != true):
@@ -70,18 +69,15 @@ func setup_phase():
 	create_cards_and_add_to_deck()
 	card_manager.shuffle_deck()
 	#Basic Deck filling example
-
-
-	$CurrentPhaseLabel.set_text("setup_phase")
+	next_phase()
 	
 func setup_end_phase():
 	is_in_phase = true
 	card_manager.draw_cards(ammount_of_cards_drawn_at_start)
-	$CurrentPhaseLabel.set_text("setup_end_phase")
+	next_phase()
 
 func draw_phase():
 	is_in_phase = true
-	$CurrentPhaseLabel.set_text("draw_phase")
 	if (card_manager.get_hand_size() < max_hand_size):
 		card_manager.draw_cards(ammount_of_cards_drawn_at_draw_phase)
 
@@ -90,36 +86,38 @@ func draw_phase():
 func draw_end_phase():
 	is_in_phase = true
 	hideHandCards()
-	$CurrentPhaseLabel.set_text("draw_end_phase")
+	next_phase()
 
 func play_card_phase():
 	is_in_phase = true
-	$CurrentPhaseLabel.set_text("play_card_phase")
 
 func play_end_card_phase():
 	is_in_phase = true
-	$CurrentPhaseLabel.set_text("play_end_card_phase")
+	next_phase()
 
 func calculation_phase():
 	is_in_phase = true
-	calculate_tiles()
-	$CurrentPhaseLabel.set_text("calculation_phase")
+	Global.sim.tick()
+	Global.bus.emit_map_refresh()
+	var stats = Global.sim.stats()
+	print(stats)
+	if card_manager.game_finished():
+		# calculate if player won or loose
+		if (abs(stats["duality"]) > 10):
+			get_tree().change_scene("res://Scenes/Lose.tscn")
+		else:
+			get_tree().change_scene("res://Scenes/Win.tscn")
+	next_phase()
 
 func calculation_end_phase():
 	is_in_phase = true
-	$CurrentPhaseLabel.set_text("calculation_end_phase")
+	next_phase()
+	print(currentPhase)
 
 # --------------------------------------------------------------------------
 
-func calculate_tiles():
-	print(field_manager.get_wilderness())
-	print(field_manager.get_industry())
-	# this should be around 0 for a balanced game
-	print(field_manager.get_overall_values())
-	emit_signal("map_refresh")
-
 func next_phase():
-	if (currentPhase <=7):
+	if (currentPhase < 7):
 		currentPhase = currentPhase + 1
 	else:
 		currentPhase = 2
@@ -128,10 +126,24 @@ func next_phase():
 func create_cards_and_add_to_deck():
 	# Wilderness
 	var tree_card = Card.Card.new("Baum", "res://Assets/Cards/card_nature_tree.png")
+	tree_card.card_type = WILDERNESS
+	tree_card.card_topping = Toppings.ToppingTree.new()
+
 	var hill_card = Card.Card.new("Hügelchen", "res://Assets/Cards/card_nature_hill.png")
+	hill_card.card_type = WILDERNESS
+	hill_card.card_topping = Toppings.ToppingHill.new()
+
 	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun", "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png")
+	look_at_the_size_of_this_tree_card.card_type = WILDERNESS
+	look_at_the_size_of_this_tree_card.card_topping = Toppings.ToppingBigTree.new()
+
 	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_moor.png")
+	moor_card.card_type = WILDERNESS
+	moor_card.card_topping = Toppings.ToppingSwamp.new()
+
 	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_nom_nom_plant.png")
+	nom_nom_plant_card.card_type = WILDERNESS
+	nom_nom_plant_card.card_topping = Toppings.ToppingNomNomPlant.new()
 
 	card_manager.add_cards_to_deck(tree_card, 5)
 	card_manager.add_cards_to_deck(hill_card, 4)
@@ -141,10 +153,24 @@ func create_cards_and_add_to_deck():
 
 	# Industrie
 	var hut_card = Card.Card.new("Hütte", "res://Assets/Cards/card_industrie_hut.png")
+	hut_card.card_type = INDUSTRY
+	hut_card.card_topping = Toppings.ToppingHut.new()
+
 	var shop_card = Card.Card.new("Geschäft", "res://Assets/Cards/card_industrie_shop.png")
+	shop_card.card_type = INDUSTRY
+	shop_card.card_topping = Toppings.ToppingShop.new()
+	
 	var skyscraper_card = Card.Card.new("Hochhaus", "res://Assets/Cards/card_industrie_skyscraper.png")
-	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.pngg")
+	skyscraper_card.card_type = INDUSTRY
+	skyscraper_card.card_topping = Toppings.ToppingSkyscraper.new()
+	
+	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png")
+	totally_not_a_trash_pile_card.card_type = INDUSTRY
+	totally_not_a_trash_pile_card.card_topping = Toppings.ToppingTrash.new()
+	
 	var fancy_power_plant = Card.Card.new("Kraftwerk", "res://Assets/Cards/card_industrie_fancy_power_plant.png")
+	fancy_power_plant.card_type = INDUSTRY
+	fancy_power_plant.card_topping = Toppings.ToppingFanyPowerPlant.new()
 
 	card_manager.add_cards_to_deck(hut_card, 5)
 	card_manager.add_cards_to_deck(shop_card, 4)
@@ -160,3 +186,6 @@ func renderHandCards():
 func hideHandCards():
 	var main_node = get_node("/root/Node2D/UI/CardHand")
 	card_manager.hide_cards(main_node)
+
+func get_card_manager():
+	return card_manager

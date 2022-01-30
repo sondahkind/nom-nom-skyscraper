@@ -1,10 +1,13 @@
 extends Object
 
 class CardManager:
-
-	var deckHand
+	# amount of cards we want to play
+	export var play_cards = 15
+	var cards_played = 0
+	
 	var Card = preload("Card.gd")
 	const Deck = preload("Deck.gd")
+	var current_card
 
 	var deck
 	var hand_cards = []
@@ -16,18 +19,23 @@ class CardManager:
 		deck.add_cards(card, ammount)
 
 	func shuffle_deck():
-		pass
 		deck.shuffle()
 	
-	func play_card(card_node: TextureButton):
+	func play_card(game_logic_node, card_node: TextureButton):
 		var nr = card_node.cardNr
 		# play a hand card
 		var card = hand_cards[nr]
+		current_card = card
 		print("play hand card: " + card.card_name)
-		# remove card from deck
 		hide_cards(card_node.get_parent())
+		# remove card from deck
 		hand_cards.remove(nr)
-		# hand_cards[nr].card_name
+		cards_played += 1
+		# end draw phase
+		game_logic_node.next_phase()
+
+	func game_finished():
+		return cards_played >= play_cards
 	
 	func draw_cards(numberOfCards):
 		# draw hand cards
@@ -42,14 +50,16 @@ class CardManager:
 		var x=0
 		for card in hand_cards:
 			card.display_card(drawing_node.get_child(x))
-			x = x+1
+			x = x + 1
 
 	func hide_cards(drawing_node):
 		# hide all hand cards
 		var x=0
 		for card in hand_cards:
 			card.hide_card(drawing_node.get_child(x))
-			x = x+1
+			x = x + 1
 
 	func get_hand_size():
 		return hand_cards.size()
+
+		

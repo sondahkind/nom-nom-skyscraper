@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/TileEdit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Toppings/tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Tiles/tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://Scripts/map/Toppings.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/map/MapView.gd" type="Script" id=5]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
+
+[node name="MapView" type="Node" parent="."]
+script = ExtResource( 5 )
 
 [node name="Basemap" type="TileMap" parent="."]
 mode = 1
@@ -24,7 +28,7 @@ cell_size = Vector2( 216, 125 )
 cell_tile_origin = 2
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( -327673, 0, 0, -262137, 1, 0, -131066, 1, 0, -131064, 1, 0, -65531, 0, 0, 131076, 0, 0, 327690, 1, 0 )
+tile_data = PoolIntArray( -196598, 5, 0 )
 script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

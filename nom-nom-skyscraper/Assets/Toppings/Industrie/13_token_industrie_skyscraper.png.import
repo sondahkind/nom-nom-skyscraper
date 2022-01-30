@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/token_nature_tree.png-1eeb1c89458e72e33224540a66b35009.stex"
+path="res://.import/13_token_industrie_skyscraper.png-64f0b4ae9cd91f3d6bc3b556ccbdf2da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Toppings/Nature/token_nature_tree.png"
-dest_files=[ "res://.import/token_nature_tree.png-1eeb1c89458e72e33224540a66b35009.stex" ]
+source_file="res://Assets/Toppings/Industrie/13_token_industrie_skyscraper.png"
+dest_files=[ "res://.import/13_token_industrie_skyscraper.png-64f0b4ae9cd91f3d6bc3b556ccbdf2da.stex" ]
 
 [params]
 
