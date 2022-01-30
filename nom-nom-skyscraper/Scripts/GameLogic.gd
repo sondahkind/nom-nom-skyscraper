@@ -30,10 +30,14 @@ const CALCULATION_END_PHASE = 7
 const INDUSTRY = 0
 const WILDERNESS = 1
 
+var UI_CardIDs
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	UI_CardIDs = get_node("/root/UI_CardIDs")
+	var ui_hand_cards_node = get_node("../UI/HandCards")
 	Global.bus.emit_map_refresh()
-	card_manager = CardManager.CardManager.new()
+	card_manager = CardManager.CardManager.new(ui_hand_cards_node)
 	currentPhase = SETUP_PHASE
 	phase_manager()
 
@@ -125,23 +129,31 @@ func next_phase():
 
 func create_cards_and_add_to_deck():
 	# Wilderness
-	var tree_card = Card.Card.new("Baum", "res://Assets/Cards/card_nature_tree.png")
+	var tree_card = Card.Card.new("Baum", UI_CardIDs.TREE, "res://Assets/Cards/card_nature_tree.png")
 	tree_card.card_type = WILDERNESS
 	tree_card.card_topping = Toppings.ToppingTree.new()
 
-	var hill_card = Card.Card.new("Hügelchen", "res://Assets/Cards/card_nature_hill.png")
+	var hill_card = Card.Card.new("Hügelchen", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
 	hill_card.card_topping = Toppings.ToppingHill.new()
 
-	var look_at_the_size_of_this_tree_card = Card.Card.new("Jahrhundertbaun", "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png")
+	var look_at_the_size_of_this_tree_card = Card.Card.new(
+		"Jahrhundertbaun",
+		UI_CardIDs.LOOK_AT_THE_SIZE_OF_THIS_TREE,
+		"res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png"
+	)
 	look_at_the_size_of_this_tree_card.card_type = WILDERNESS
 	look_at_the_size_of_this_tree_card.card_topping = Toppings.ToppingBigTree.new()
 
-	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_moor.png")
+	var moor_card = Card.Card.new("Moor", UI_CardIDs.SWAMP, "res://Assets/Cards/card_nature_moor.png")
 	moor_card.card_type = WILDERNESS
 	moor_card.card_topping = Toppings.ToppingSwamp.new()
 
-	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_nom_nom_plant.png")
+	var nom_nom_plant_card = Card.Card.new(
+		"Nom Nom Pflanze",
+		UI_CardIDs.NOM_NOM_PLANT,
+		"res://Assets/Cards/card_nature_nom_nom_plant.png"
+	)
 	nom_nom_plant_card.card_type = WILDERNESS
 	nom_nom_plant_card.card_topping = Toppings.ToppingNomNomPlant.new()
 
@@ -152,23 +164,31 @@ func create_cards_and_add_to_deck():
 	card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
 
 	# Industrie
-	var hut_card = Card.Card.new("Hütte", "res://Assets/Cards/card_industrie_hut.png")
+	var hut_card = Card.Card.new("Hütte", UI_CardIDs.HUT, "res://Assets/Cards/card_industrie_hut.png")
 	hut_card.card_type = INDUSTRY
 	hut_card.card_topping = Toppings.ToppingHut.new()
 
-	var shop_card = Card.Card.new("Geschäft", "res://Assets/Cards/card_industrie_shop.png")
+	var shop_card = Card.Card.new("Geschäft", UI_CardIDs.SHOP, "res://Assets/Cards/card_industrie_shop.png")
 	shop_card.card_type = INDUSTRY
 	shop_card.card_topping = Toppings.ToppingShop.new()
 	
-	var skyscraper_card = Card.Card.new("Hochhaus", "res://Assets/Cards/card_industrie_skyscraper.png")
+	var skyscraper_card = Card.Card.new("Hochhaus", UI_CardIDs.SKYSCRAPER, "res://Assets/Cards/card_industrie_skyscraper.png")
 	skyscraper_card.card_type = INDUSTRY
 	skyscraper_card.card_topping = Toppings.ToppingSkyscraper.new()
 	
-	var totally_not_a_trash_pile_card = Card.Card.new("Recycling-Station", "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png")
+	var totally_not_a_trash_pile_card = Card.Card.new(
+		"Recycling-Station",
+		UI_CardIDs.TOTALLY_NOT_A_TRASH_PILE,
+		"res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png"
+	)
 	totally_not_a_trash_pile_card.card_type = INDUSTRY
 	totally_not_a_trash_pile_card.card_topping = Toppings.ToppingTrash.new()
 	
-	var fancy_power_plant = Card.Card.new("Kraftwerk", "res://Assets/Cards/card_industrie_fancy_power_plant.png")
+	var fancy_power_plant = Card.Card.new(
+		"Kraftwerk",
+		UI_CardIDs.FANCY_POWER_PLANT,
+		"res://Assets/Cards/card_industrie_fancy_power_plant.png"
+	)
 	fancy_power_plant.card_type = INDUSTRY
 	fancy_power_plant.card_topping = Toppings.ToppingFanyPowerPlant.new()
 
@@ -180,12 +200,10 @@ func create_cards_and_add_to_deck():
 
 
 func renderHandCards():
-	var main_node = get_node("/root/Node2D/UI/CardHand")
-	card_manager.display_cards(main_node)
+	card_manager.display_cards()
 	
 func hideHandCards():
-	var main_node = get_node("/root/Node2D/UI/CardHand")
-	card_manager.hide_cards(main_node)
+	card_manager.hide_cards()
 
 func get_card_manager():
 	return card_manager

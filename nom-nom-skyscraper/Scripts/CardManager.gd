@@ -11,8 +11,10 @@ class CardManager:
 
 	var deck
 	var hand_cards = []
+	var ui_node
 
-	func _init():
+	func _init(p_ui_node):
+		self.ui_node = p_ui_node
 		deck = Deck.Deck.new()
 
 	func add_cards_to_deck(card, ammount):
@@ -27,7 +29,7 @@ class CardManager:
 		var card = hand_cards[nr]
 		current_card = card
 		print("play hand card: " + card.card_name)
-		hide_cards(card_node.get_parent())
+		hide_cards()
 		# remove card from deck
 		hand_cards.remove(nr)
 		cards_played += 1
@@ -45,21 +47,16 @@ class CardManager:
 			if (card != null):
 				print(card.card_name)
 
-	func display_cards(drawing_node):
+	func display_cards():
 		# display all hand cards
-		var x=0
+		var hand_card_ids = []
 		for card in hand_cards:
-			card.display_card(drawing_node.get_child(x))
-			x = x + 1
+			hand_card_ids.append(card.card_id)
+		ui_node.set_cards(hand_card_ids)
 
-	func hide_cards(drawing_node):
+	func hide_cards():
 		# hide all hand cards
-		var x=0
-		for card in hand_cards:
-			card.hide_card(drawing_node.get_child(x))
-			x = x + 1
+		ui_node.set_cards([])
 
 	func get_hand_size():
 		return hand_cards.size()
-
-		

@@ -117,6 +117,7 @@ func _on_button_clicked():
 	# dynamically created instances so here we go
 	var card_under_mouse = _get_hovered_node()
 	var card_id = _card_id_from_node(card_under_mouse)
+	print_debug("Emitting click signal for card {c_id}".format({"c_id": card_id}))
 	emit_signal("card_clicked", card_id)
 
 

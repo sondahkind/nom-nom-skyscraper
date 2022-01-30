@@ -2,6 +2,7 @@ extends Object
 
 class Card:
 	var card_name = "no_name"
+	var card_id = ""
 	var card_image = "res://Assets/Cards/card_nature_tree.png"
 	var sprite
 	var texture
@@ -16,8 +17,9 @@ class Card:
 	# TODO add card stuff
 
 	# Is the constructor is calles with Card.new() an creates new object
-	func _init(card_name_new, card_image_path):
+	func _init(card_name_new, card_id_new, card_image_path):
 		self.card_name = card_name_new
+		self.card_id = card_id_new
 		texture = load(card_image_path)
 
 	func set_card_values(card_name_new):
