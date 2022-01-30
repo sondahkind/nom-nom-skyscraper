@@ -7,7 +7,7 @@ class BaseTopping:
 
 class ToppingTree extends BaseTopping:
 	func _init():
-		tile_index = 0 
+		tile_index = 5
 
 	func get_influence():
 		return [
@@ -24,7 +24,7 @@ class ToppingTree extends BaseTopping:
 
 class ToppingHill extends BaseTopping:
 	func _init():
-		tile_index = 7
+		tile_index = 6
 
 	func get_influence():
 		return [
@@ -49,7 +49,7 @@ class ToppingHill extends BaseTopping:
 
 class ToppingBigTree extends BaseTopping:
 	func _init():
-		tile_index = 2 
+		tile_index = 7
 
 	func get_influence():
 		return [
@@ -80,9 +80,9 @@ class ToppingBigTree extends BaseTopping:
 			[Vector2(-1, -2), 1],
 		]
 
-class ToppingMoot extends BaseTopping:
+class ToppingSwamp extends BaseTopping:
 	func _init():
-		tile_index = 3 
+		tile_index = 8
 
 	func get_influence():
 		return [
@@ -99,7 +99,7 @@ class ToppingMoot extends BaseTopping:
 
 class ToppingNomNomPlant extends BaseTopping:
 	func _init():
-		tile_index = 2 
+		tile_index = 9
 
 	func get_influence():
 		return [
@@ -132,7 +132,7 @@ class ToppingNomNomPlant extends BaseTopping:
 
 class ToppingHut extends BaseTopping:
 	func _init():
-		tile_index = 9
+		tile_index = 0
 
 	func get_influence():
 		return [
@@ -149,7 +149,7 @@ class ToppingHut extends BaseTopping:
 
 class ToppingShop extends BaseTopping:
 	func _init():	
-		tile_index = 10
+		tile_index = 1
 
 	func get_influence():
 		return [
@@ -174,7 +174,7 @@ class ToppingShop extends BaseTopping:
 
 class ToppingSkyscraper extends BaseTopping:
 	func _init():
-		tile_index = 11 
+		tile_index = 2 
 
 	func get_influence():
 		return [
@@ -207,7 +207,7 @@ class ToppingSkyscraper extends BaseTopping:
 
 class ToppingTrash extends BaseTopping:
 	func _init():
-		tile_index = 12 
+		tile_index = 3
 
 	func get_influence():
 		return [
@@ -224,7 +224,7 @@ class ToppingTrash extends BaseTopping:
 
 class ToppingFanyPowerPlant extends BaseTopping:
 	func _init():
-		tile_index = 13 
+		tile_index = 4
 
 	func get_influence():
 		return [

@@ -139,7 +139,7 @@ func create_cards_and_add_to_deck():
 
 	var moor_card = Card.Card.new("Moor", "res://Assets/Cards/card_nature_moor.png")
 	moor_card.card_type = WILDERNESS
-	moor_card.card_topping = Toppings.ToppingMoot.new()
+	moor_card.card_topping = Toppings.ToppingSwamp.new()
 
 	var nom_nom_plant_card = Card.Card.new("Nom Nom Pflanze", "res://Assets/Cards/card_nature_nom_nom_plant.png")
 	nom_nom_plant_card.card_type = WILDERNESS
