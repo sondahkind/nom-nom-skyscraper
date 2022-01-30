@@ -1,4 +1,4 @@
-
+const toppings = preload("res://Scripts/simulation/Toppings.gd")
 
 class Simulation:
 	var current_map
@@ -28,6 +28,29 @@ class Simulation:
 				var inf_field = current_map.get_tile(i_pos.x, i_pos.y)
 				if inf_field:
 					inf_field.duality += influence[1]
+
+		# kill off toppings with wrong soil
+		for field in current_map.fields.values():
+			if field.duality_topping.duality == 0:
+				continue
+				
+			if sign(field.duality_topping.duality) != sign(field.duality):
+				field.duality_topping = toppings.BaseTopping.new()
+
+		# grow!
+		for field in current_map.fields.values():
+			if field.duality_topping.duality != 0:
+				# ignore fields with topping already existing
+				continue
+				
+			if abs(field.duality) < 4:
+				continue
+			
+			if sign(field.duality) == -1:
+				field.duality_topping = toppings.ToppingHut.new()
+			else:
+				field.duality_topping = toppings.ToppingTree.new()
+
 		return map
 
 	func used_tile(x, y):
