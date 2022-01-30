@@ -8,10 +8,6 @@ class Field:
 	var duality: int = 0
 	var duality_topping = Toppings.BaseTopping.new()
 
-	# -1 = no topping
-	# 1 = Tree / Hut
-
-
 	func base_type():
 		if duality < 0:
 			return 0
