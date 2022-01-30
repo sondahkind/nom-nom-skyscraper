@@ -71,10 +71,18 @@ func _show_preview(pos, card_topping):
 	
 	for influence in card_topping.get_influence():
 		var preview_pos = pos + influence[0]
+		var field = Global.sim.current_map.get_tile(preview_pos.x, preview_pos.y)
+		if field == null:
+			continue
 		var preview = select_texture.instance()
+		# var preview_text = Label.new()
+		# preview_text.text = String(abs(influence[1]))
 		add_child(preview)
+		# add_child(preview_text)
 		select.append(preview)
+		# select.append(preview_text)
 		preview.position = self.to_global(map_to_world(preview_pos))
+		# preview_text.position = self.to_global(map_to_world(preview_pos))
 
 	var current_card = game_logic.get_card_manager().current_card
 
