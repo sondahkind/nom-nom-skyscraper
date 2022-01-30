@@ -6,10 +6,23 @@ const WILDERNESS = 1
 class BaseTopping:
 	var duality = NEUTRAL
 	var tile_index = -1
+	var absolute_influence = false
 
 	func get_influence():
 		return []
 	
+
+class ToppingHill extends BaseTopping:
+	func _init():
+		duality = NEUTRAL
+		tile_index = 7
+		absolute_influence = true
+
+	func get_influence():
+		return [
+			[Vector2(0, 0), 0],
+		]
+
 
 class ToppingYoungTree extends BaseTopping:
 	func _init():

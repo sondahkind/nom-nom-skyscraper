@@ -145,6 +145,8 @@ func calculation_phase():
 			get_tree().change_scene("res://Scenes/Win.tscn")
 		else:
 			get_tree().change_scene("res://Scenes/Lose.tscn")
+
+
 	next_phase()
 
 
@@ -183,12 +185,16 @@ func next_phase():
 	is_in_phase = false
 
 func create_cards_and_add_to_deck():
-	# Wilderness
-
-
-	var hill_card = Card.Card.new("Stinkepflanze", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+	# Neutral cards
+	var hill_card = Card.Card.new("Hügel", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
-	hill_card.card_topping = Toppings.ToppingStinkPlant.new()
+	hill_card.card_topping = Toppings.ToppingHill.new()
+	card_manager.add_cards_to_deck(hill_card, 6)
+
+	# Wilderness
+	var stinkplant_card = Card.Card.new("Stinkepflanze", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+	stinkplant_card.card_type = WILDERNESS
+	stinkplant_card.card_topping = Toppings.ToppingStinkPlant.new()
 
 	var look_at_the_size_of_this_tree_card = Card.Card.new(
 		"Jahrhundertbaun",
@@ -210,7 +216,7 @@ func create_cards_and_add_to_deck():
 	nom_nom_plant_card.card_type = WILDERNESS
 	nom_nom_plant_card.card_topping = Toppings.ToppingNomNomPlant.new()
 
-	card_manager.add_cards_to_deck(hill_card, 4)
+	card_manager.add_cards_to_deck(stinkplant_card, 4)
 	card_manager.add_cards_to_deck(look_at_the_size_of_this_tree_card, 3)
 	card_manager.add_cards_to_deck(moor_card, 2)
 	card_manager.add_cards_to_deck(nom_nom_plant_card, 1)
