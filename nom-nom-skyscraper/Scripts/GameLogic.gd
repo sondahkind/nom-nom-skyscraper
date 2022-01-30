@@ -110,9 +110,26 @@ func calculation_phase():
 	Global.bus.emit_map_refresh()
 	var stats = Global.sim.stats()
 	print(stats)
-	print("-> win? ", _current_win(stats))
+	var would_win = _current_win(stats)
+	print("-> win? ", would_win)
 	map_progress.set_industry_progress(stats["industry_perc"])
 	map_progress.set_nature_progress(stats["wilderness_perc"])
+
+	var pulse_wilderness = false
+	var pulse_industry = false
+	if !would_win:
+		if stats["industry_perc"] > stats["wilderness_perc"]:
+			pulse_wilderness = true
+		else:
+			pulse_industry = true
+
+	if stats["industry_perc"] < 25:
+		pulse_industry = true
+
+	if stats["wilderness_perc"] < 25:
+		pulse_wilderness = true
+	
+	print("pulse", pulse_wilderness, pulse_industry)
 
 	var game_finished = card_manager.game_finished()
 	if stats["industry_perc"] > 75:
