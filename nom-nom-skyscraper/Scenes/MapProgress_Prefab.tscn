@@ -27,8 +27,18 @@ position = Vector2( 0, 55 )
 scale = Vector2( 524, 60 )
 texture = ExtResource( 5 )
 
-[node name="ProgressbarNeutral" type="Sprite" parent="."]
-position = Vector2( 960, 55 )
+[node name="Control2" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -960.0
+margin_right = -920.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressbarNeutral" type="Sprite" parent="Control/Control2"]
+position = Vector2( 940, 55 )
 texture = ExtResource( 2 )
 
 [node name="IndustrialProgress" type="TextureProgress" parent="."]
