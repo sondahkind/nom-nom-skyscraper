@@ -37,7 +37,7 @@ class ToppingTree extends BaseTopping:
 
 class ToppingHill extends BaseTopping:
 	func _init():
-		tile_index = 7
+		tile_index = 13
 		duality = WILDERNESS
 
 	func get_influence():
