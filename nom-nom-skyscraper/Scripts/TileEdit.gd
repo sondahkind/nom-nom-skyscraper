@@ -4,6 +4,10 @@ var select_texture = preload("res://Scenes/Select.tscn")
 var select
 var select_pos
 
+var nature_influence = {}
+var industry_influence = {}
+
+
 var game_logic
 
 const INDUSTRY = 0
@@ -27,6 +31,11 @@ func _ready():
 	select = []
 	select_pos = null
 
+	for i in range(1, 6):
+		nature_influence[i] = load("res://Assets/Tiles/nature_%d.png" % i)
+
+	for i in range(1, 6):
+		industry_influence[i] = load("res://Assets/Tiles/industry_%d.png" % i)
 
 func _on_map_refresh():
 	print("map refresh - Basemap")
@@ -75,15 +84,26 @@ func _show_preview(pos, card_topping):
 		if field == null:
 			continue
 		var preview = select_texture.instance()
-		# var preview_text = Label.new()
-		# preview_text.text = String(abs(influence[1]))
-		add_child(preview)
-		# add_child(preview_text)
-		select.append(preview)
-		# select.append(preview_text)
-		preview.position = self.to_global(map_to_world(preview_pos))
-		# preview_text.position = self.to_global(map_to_world(preview_pos))
+		
 
+		add_child(preview)
+
+		select.append(preview)
+		var p_pos = map_to_world(preview_pos)
+		preview.position = self.to_global(p_pos)
+		
+		if influence[1] == 0:
+			continue
+			
+		var preview_text = Sprite.new()
+		select.append(preview_text)
+		p_pos += Vector2(0, 40)
+		add_child(preview_text)
+		if influence[1] < 0:
+			preview_text.texture = industry_influence[abs(influence[1])]
+		else:
+			preview_text.texture = nature_influence[influence[1]]
+		preview_text.position = self.to_global(p_pos)
 	var current_card = game_logic.get_card_manager().current_card
 
 
