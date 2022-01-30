@@ -130,6 +130,8 @@ func calculation_phase():
 	if stats["wilderness_perc"] < 25:
 		pulse_wilderness = true
 	
+	map_progress.nat_pulse = pulse_wilderness
+	map_progress.ind_pulse = pulse_industry
 	print("pulse", pulse_wilderness, pulse_industry)
 
 	var game_finished = card_manager.game_finished()
