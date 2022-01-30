@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/nom-nom-skyscraper.icon.png-7e25e4d9f94dde33250974c16475517e.stex"
+path="res://.import/nom-nom-skyscraper.png-cfb4104a58119c1032fde1a6afc57819.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://build/nom-nom-skyscraper.icon.png"
-dest_files=[ "res://.import/nom-nom-skyscraper.icon.png-7e25e4d9f94dde33250974c16475517e.stex" ]
+source_file="res://page/nom-nom-skyscraper.png"
+dest_files=[ "res://.import/nom-nom-skyscraper.png-cfb4104a58119c1032fde1a6afc57819.stex" ]
 
 [params]
 
