@@ -77,7 +77,9 @@ func _ready():
 		UI_CardIDs.SHOP: "res://Assets/Cards/card_industrie_shop.png",
 		UI_CardIDs.SKYSCRAPER: "res://Assets/Cards/card_industrie_skyscraper.png",
 		UI_CardIDs.TOTALLY_NOT_A_TRASH_PILE: "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png",
-		UI_CardIDs.FANCY_POWER_PLANT: "res://Assets/Cards/card_industrie_fancy_power_plant.png"
+		UI_CardIDs.FANCY_POWER_PLANT: "res://Assets/Cards/card_industrie_fancy_power_plant.png",
+		UI_CardIDs.ROCK: "res://Assets/Cards/card_neutral_rock.png",
+		UI_CardIDs.POND: "res://Assets/Cards/card_neutral_pond.png"
 	}
 	
 	# preload textures

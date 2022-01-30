@@ -1,7 +1,8 @@
 extends TileMap
 
-var select = preload("res://Scenes/Select.tscn").instance()
-
+var select_texture = preload("res://Scenes/Select.tscn")
+var select
+var select_pos
 
 var game_logic
 
@@ -23,6 +24,8 @@ func _ready():
 	
 	Global.sim.used_tiles_marked()
 	Global.bus.connect("map_refresh", self, "_on_map_refresh")
+	select = []
+	select_pos = null
 
 
 func _on_map_refresh():
@@ -34,7 +37,7 @@ func _on_map_refresh():
 func _unhandled_input(event):
 	if game_logic.currentPhase != game_logic.PLAY_CARD_PHASE:
 		if _showSelect:
-			remove_child(select)
+			_clean_preview()
 			_showSelect = false
 		return
 	if event is InputEventMouseButton:
@@ -50,12 +53,30 @@ func _unhandled_input(event):
 			tile.duality_topping = card_type
 			game_logic.next_phase()
 	elif event is InputEventMouseMotion:
-		if not _showSelect:
-			add_child(select)
-			_showSelect = true
-		var pos = self.to_global(map_to_world(world_to_map(get_global_mouse_position())))
-		select.position = pos
+		var current_card = game_logic.get_card_manager().current_card
+		var pos = world_to_map(get_global_mouse_position())
+		_show_preview(pos, current_card.card_topping)
 
+func _clean_preview():
+	for child in select:
+		remove_child(child)
+	select = []
+
+func _show_preview(pos, card_topping):
+	if _showSelect and select_pos == pos:
+		return
+
+	_clean_preview()
+	_showSelect = true
+	
+	for influence in card_topping.get_influence():
+		var preview_pos = pos + influence[0]
+		var preview = select_texture.instance()
+		add_child(preview)
+		select.append(preview)
+		preview.position = self.to_global(map_to_world(preview_pos))
+
+	var current_card = game_logic.get_card_manager().current_card
 
 # func set_type(x, y, type):
 # 	var field = field_manager.get_field(x, y)
