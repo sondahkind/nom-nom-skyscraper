@@ -13,6 +13,8 @@ class CardManager:
 	var hand_cards = []
 	var ui_node
 
+	var number_cards_left
+
 	func _init(p_ui_node):
 		self.ui_node = p_ui_node
 		deck = Deck.Deck.new()
@@ -22,6 +24,8 @@ class CardManager:
 
 	func shuffle_deck():
 		deck.shuffle()
+		# TODO: maybe put this somewhere else...
+		number_cards_left.text = str(play_cards)
 	
 	func play_card(game_logic_node, card_nr):
 		var nr = card_nr
@@ -34,12 +38,13 @@ class CardManager:
 		# remove card from deck
 		hand_cards.remove(nr)
 		cards_played += 1
+		number_cards_left.text = str(play_cards - cards_played)
 		# end draw phase
 		game_logic_node.next_phase()
 
 	func game_finished():
 		return cards_played >= play_cards
-	
+
 	func draw_cards(numberOfCards):
 		# draw hand cards
 		for x in numberOfCards:

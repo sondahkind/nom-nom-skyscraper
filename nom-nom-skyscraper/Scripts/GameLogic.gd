@@ -73,6 +73,7 @@ func phase_manager():
 
 func setup_phase():
 	is_in_phase = true
+	card_manager.number_cards_left = get_node("../UI/CardNumber/CardsLeft")
 	create_cards_and_add_to_deck()
 	card_manager.shuffle_deck()
 	#Basic Deck filling example
