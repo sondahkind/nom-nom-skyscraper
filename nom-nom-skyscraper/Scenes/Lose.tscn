@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/BackToStart.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Lose.gd" type="Script" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="LoseMainNode" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 815.0
 margin_top = 498.0
 margin_right = 914.0
 margin_bottom = 529.0
+rect_pivot_offset = Vector2( -461, 80 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "VERLOREN!"
 __meta__ = {
@@ -22,6 +25,98 @@ margin_right = 1034.0
 margin_bottom = 646.0
 text = "NOCHMAL!"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IndustryValue" type="RichTextLabel" parent="."]
+margin_left = 666.0
+margin_top = 704.0
+margin_right = 891.0
+margin_bottom = 735.0
+rect_pivot_offset = Vector2( -461, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Industry Value: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="RichTextLabel" parent="IndustryValue"]
+margin_left = 162.0
+margin_right = 261.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( -306, -141 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IndustryPercantage" type="RichTextLabel" parent="."]
+margin_left = 666.0
+margin_top = 766.0
+margin_right = 891.0
+margin_bottom = 797.0
+rect_pivot_offset = Vector2( -461, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Indusrty Percantage: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="RichTextLabel" parent="IndustryPercantage"]
+margin_left = 162.0
+margin_right = 261.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( -461, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WildernessPercantage" type="RichTextLabel" parent="."]
+margin_left = 666.0
+margin_top = 735.0
+margin_right = 891.0
+margin_bottom = 766.0
+rect_pivot_offset = Vector2( -461, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Wilderness Percantage: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="RichTextLabel" parent="WildernessPercantage"]
+margin_left = 162.0
+margin_right = 261.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( -461, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WildernessValue" type="RichTextLabel" parent="."]
+margin_left = 666.0
+margin_top = 673.0
+margin_right = 891.0
+margin_bottom = 704.0
+rect_pivot_offset = Vector2( -461, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Wilderness Value:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="RichTextLabel" parent="WildernessValue"]
+margin_left = 162.0
+margin_right = 261.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( -506, -110 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }

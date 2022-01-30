@@ -145,6 +145,8 @@ func calculation_phase():
 			get_tree().change_scene("res://Scenes/Win.tscn")
 		else:
 			get_tree().change_scene("res://Scenes/Lose.tscn")
+
+
 	next_phase()
 
 
