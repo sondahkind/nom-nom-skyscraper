@@ -1,4 +1,10 @@
+
+const INDUSTRY = -1
+const NEUTRAL = 0
+const WILDERNESS = 1
+
 class BaseTopping:
+	var duality = NEUTRAL
 	var tile_index = -1
 
 	func get_influence():
@@ -7,11 +13,12 @@ class BaseTopping:
 
 class ToppingTree extends BaseTopping:
 	func _init():
+		duality = WILDERNESS
 		tile_index = 5
 
 	func get_influence():
 		return [
-			[Vector2(0, 0), 3],
+			# [Vector2(0, 0), 3],
 			[Vector2(0, 1), 1],
 			[Vector2(1, 0), 1],
 			[Vector2(-1, 0), 1],
@@ -25,6 +32,7 @@ class ToppingTree extends BaseTopping:
 class ToppingHill extends BaseTopping:
 	func _init():
 		tile_index = 6
+		duality = WILDERNESS
 
 	func get_influence():
 		return [
@@ -49,6 +57,7 @@ class ToppingHill extends BaseTopping:
 
 class ToppingBigTree extends BaseTopping:
 	func _init():
+		duality = WILDERNESS
 		tile_index = 7
 
 	func get_influence():
@@ -82,6 +91,7 @@ class ToppingBigTree extends BaseTopping:
 
 class ToppingSwamp extends BaseTopping:
 	func _init():
+		duality = WILDERNESS
 		tile_index = 8
 
 	func get_influence():
@@ -99,6 +109,7 @@ class ToppingSwamp extends BaseTopping:
 
 class ToppingNomNomPlant extends BaseTopping:
 	func _init():
+		duality = WILDERNESS
 		tile_index = 9
 
 	func get_influence():
@@ -132,11 +143,12 @@ class ToppingNomNomPlant extends BaseTopping:
 
 class ToppingHut extends BaseTopping:
 	func _init():
+		duality = INDUSTRY
 		tile_index = 0
 
 	func get_influence():
 		return [
-			[Vector2(0, 0), -3],
+			# [Vector2(0, 0), -3],
 			[Vector2(0, 1), -1],
 			[Vector2(1, 0), -1],
 			[Vector2(-1, 0), -1],
@@ -150,6 +162,7 @@ class ToppingHut extends BaseTopping:
 class ToppingShop extends BaseTopping:
 	func _init():	
 		tile_index = 1
+		duality = INDUSTRY
 
 	func get_influence():
 		return [
@@ -175,6 +188,7 @@ class ToppingShop extends BaseTopping:
 class ToppingSkyscraper extends BaseTopping:
 	func _init():
 		tile_index = 2 
+		duality = INDUSTRY
 
 	func get_influence():
 		return [
@@ -208,6 +222,7 @@ class ToppingSkyscraper extends BaseTopping:
 class ToppingTrash extends BaseTopping:
 	func _init():
 		tile_index = 3
+		duality = INDUSTRY
 
 	func get_influence():
 		return [
@@ -225,6 +240,7 @@ class ToppingTrash extends BaseTopping:
 class ToppingFanyPowerPlant extends BaseTopping:
 	func _init():
 		tile_index = 4
+		duality = INDUSTRY
 
 	func get_influence():
 		return [
