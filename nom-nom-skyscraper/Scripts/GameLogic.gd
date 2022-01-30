@@ -73,6 +73,7 @@ func phase_manager():
 
 func setup_phase():
 	is_in_phase = true
+	card_manager.number_cards_left = get_node("../UI/CardNumber/CardsLeft")
 	create_cards_and_add_to_deck()
 	card_manager.shuffle_deck()
 	#Basic Deck filling example
@@ -141,9 +142,9 @@ func calculation_phase():
 	if game_finished:
 		# calculate if player won or loose
 		if _current_win(stats):
-			get_tree().change_scene("res://Scenes/Lose.tscn")
-		else:
 			get_tree().change_scene("res://Scenes/Win.tscn")
+		else:
+			get_tree().change_scene("res://Scenes/Lose.tscn")
 	next_phase()
 
 
@@ -185,9 +186,9 @@ func create_cards_and_add_to_deck():
 	# Wilderness
 
 
-	var hill_card = Card.Card.new("Hügelchen", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+	var hill_card = Card.Card.new("Stinkepflanze", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
 	hill_card.card_type = WILDERNESS
-	hill_card.card_topping = Toppings.ToppingHill.new()
+	hill_card.card_topping = Toppings.ToppingStinkPlant.new()
 
 	var look_at_the_size_of_this_tree_card = Card.Card.new(
 		"Jahrhundertbaun",
