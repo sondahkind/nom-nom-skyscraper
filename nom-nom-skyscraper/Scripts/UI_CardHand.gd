@@ -2,7 +2,7 @@
 Renders hand cards.
 
 To integrate into scene: Add a Control Node under the UI Canvas Node, set its
-	layout to center bottom and attach this script to the node.
+	layout to bottom left and attach this script to the node.
 
 To render a list of cards: Define an array of the hand cards to be rendered
 	which have to be represented by IDs from UI_CardIDs and then call
@@ -43,6 +43,7 @@ var _preloaded_textures = {}
 # runtime
 var hovered_card
 
+
 func set_cards(new_cards):
 	"""
 	Call this with a string array of IDs defined in UI_CardIDs
@@ -59,13 +60,22 @@ func set_cards(new_cards):
 	cards = valid_cards
 	cards_dirty = true
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Get card ID strings and map textures to card IDs
 	UI_CardIDs = get_node("/root/UI_CardIDs")
 	_textures_mapping = {
 		UI_CardIDs.TREE: "res://Assets/Cards/card_nature_tree.png",
-		UI_CardIDs.SWAMP: "res://Assets/Cards/card_nature_moor.png"
+		UI_CardIDs.HILL: "res://Assets/Cards/card_nature_hill.png",
+		UI_CardIDs.LOOK_AT_THE_SIZE_OF_THIS_TREE: "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png",
+		UI_CardIDs.SWAMP: "res://Assets/Cards/card_nature_moor.png",
+		UI_CardIDs.NOM_NOM_PLANT: "res://Assets/Cards/card_nature_nom_nom_plant.png",
+		UI_CardIDs.HUT: "res://Assets/Cards/card_industrie_hut.png",
+		UI_CardIDs.SHOP: "res://Assets/Cards/card_industrie_shop.png",
+		UI_CardIDs.SKYSCRAPER: "res://Assets/Cards/card_industrie_skyscraper.png",
+		UI_CardIDs.TOTALLY_NOT_A_TRASH_PILE: "res://Assets/Cards/card_industrie_totally_not_a_trash_pile.png",
+		UI_CardIDs.FANCY_POWER_PLANT: "res://Assets/Cards/card_industrie_fancy_power_plant.png"
 	}
 	
 	# preload textures
@@ -76,7 +86,6 @@ func _ready():
 	hovered_card = _construct_hovered_card(UI_CardIDs.TREE)
 	hovered_card.hide()
 	add_child(hovered_card)
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -101,6 +110,7 @@ func _process(delta):
 	cards_dirty = false
 	_handle_card_hover()
 
+
 func _on_button_clicked():
 	# Godot naturally doesn't pass the button name along with the button press
 	# signal (because why should it??) and we can't manually connect buttons for
@@ -109,13 +119,16 @@ func _on_button_clicked():
 	var card_id = _card_id_from_node(card_under_mouse)
 	emit_signal("card_clicked", card_id)
 
+
 func _card_id_from_node(node):
 	return node.name.split("_")[2]
+
 
 func _get_hovered_node():
 	for child in get_children():
 		if child.is_hovered():
 			return child
+
 
 func _handle_card_hover():
 	var hovered_child = _get_hovered_node()
@@ -126,7 +139,7 @@ func _handle_card_hover():
 	var hovered_id = _card_id_from_node(hovered_child)
 	hovered_card.texture_normal = _preloaded_textures.get(hovered_id)
 	hovered_card.show()
-	
+
 
 func _construct_sprite(card_id, name, position):
 	var sprite = TextureButton.new()
@@ -137,10 +150,12 @@ func _construct_sprite(card_id, name, position):
 	sprite.connect("button_up", self, "_on_button_clicked")
 	return sprite
 
+
 func _construct_hovered_card(card_id):
 	var sprite = _construct_sprite(card_id, "HoveredCard", _hover_position)
 	sprite.rect_scale = _hover_scale
 	return sprite
+
 
 func _clear_children():
 	for child in get_children():
