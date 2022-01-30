@@ -5,6 +5,7 @@
 [ext_resource path="res://Assets/Tiles/primal_cube.png" type="Texture" id=3]
 
 [resource]
+
 0/name = "city_cube.png"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -19,6 +20,7 @@
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
 1/name = "grass_cube.png"
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
@@ -33,6 +35,7 @@
 1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
+
 2/name = "primal_cube.png"
 2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
