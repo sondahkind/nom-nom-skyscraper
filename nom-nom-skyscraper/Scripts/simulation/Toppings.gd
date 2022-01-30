@@ -24,6 +24,18 @@ class ToppingHill extends BaseTopping:
 		]
 
 
+class ToppingPond extends BaseTopping:
+	func _init():
+		duality = NEUTRAL
+		tile_index = 11
+		absolute_influence = true
+
+	func get_influence():
+		return [
+			[Vector2(0, 0), 0],
+		]
+
+
 class ToppingYoungTree extends BaseTopping:
 	func _init():
 		duality = WILDERNESS

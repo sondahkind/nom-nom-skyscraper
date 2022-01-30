@@ -68,10 +68,9 @@ func _ready():
 	# Get card ID strings and map textures to card IDs
 	UI_CardIDs = get_node("/root/UI_CardIDs")
 	_textures_mapping = {
-		UI_CardIDs.TREE: "res://Assets/Cards/card_nature_tree.png",
-		UI_CardIDs.HILL: "res://Assets/Cards/card_nature_hill.png",
-		UI_CardIDs.LOOK_AT_THE_SIZE_OF_THIS_TREE: "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png",
 		UI_CardIDs.SWAMP: "res://Assets/Cards/card_nature_moor.png",
+		UI_CardIDs.TREE: "res://Assets/Cards/card_nature_tree.png",
+		UI_CardIDs.LOOK_AT_THE_SIZE_OF_THIS_TREE: "res://Assets/Cards/card_nature_look_at_the_size_of_this_tree.png",
 		UI_CardIDs.NOM_NOM_PLANT: "res://Assets/Cards/card_nature_nom_nom_plant.png",
 		UI_CardIDs.STINKPLANT: "res://Assets/Cards/card_nature_stinkplant.png",
 		UI_CardIDs.HUT: "res://Assets/Cards/card_industrie_hut.png",

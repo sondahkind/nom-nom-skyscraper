@@ -186,13 +186,19 @@ func next_phase():
 
 func create_cards_and_add_to_deck():
 	# Neutral cards
-	var hill_card = Card.Card.new("Hügel", UI_CardIDs.HILL, "res://Assets/Cards/card_nature_hill.png")
+	var hill_card = Card.Card.new("Hügel", UI_CardIDs.ROCK, "res://Assets/Cards/card_neutral_rock.png")
 	hill_card.card_type = WILDERNESS
 	hill_card.card_topping = Toppings.ToppingHill.new()
-	card_manager.add_cards_to_deck(hill_card, 6)
+	card_manager.add_cards_to_deck(hill_card, 3)
+
+	var pond_card = Card.Card.new("See", UI_CardIDs.POND, "res://Assets/Cards/card_neutral_pond.png")
+	pond_card.card_type = WILDERNESS
+	pond_card.card_topping = Toppings.ToppingPond.new()
+	card_manager.add_cards_to_deck(pond_card, 3)
+
 
 	# Wilderness
-	var stinkplant_card = Card.Card.new("Stinkepflanze", UI_CardIDs.STINKPLANT, "res://Assets/Cards/card_nature_stinkplant.png")
+	var stinkplant_card = Card.Card.new("Stinkepflanze", UI_CardIDs.STINKPLANT, "res://Assets/Cards/card_neutral_pond.png")
 	stinkplant_card.card_type = WILDERNESS
 	stinkplant_card.card_topping = Toppings.ToppingStinkPlant.new()
 
