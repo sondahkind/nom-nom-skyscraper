@@ -27,7 +27,7 @@ class ToppingHill extends BaseTopping:
 class ToppingPond extends BaseTopping:
 	func _init():
 		duality = NEUTRAL
-		tile_index = 11
+		tile_index = 12
 		absolute_influence = true
 
 	func get_influence():
