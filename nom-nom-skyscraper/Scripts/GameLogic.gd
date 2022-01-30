@@ -110,15 +110,45 @@ func calculation_phase():
 	Global.bus.emit_map_refresh()
 	var stats = Global.sim.stats()
 	print(stats)
+	print("-> win? ", _current_win(stats))
 	map_progress.set_industry_progress(stats["industry_perc"])
 	map_progress.set_nature_progress(stats["wilderness_perc"])
-	if card_manager.game_finished():
+
+	var game_finished = card_manager.game_finished()
+	if stats["industry_perc"] > 75:
+		game_finished = true
+
+	if stats["wilderness_perc"] > 75:
+		game_finished = true
+
+	if game_finished:
 		# calculate if player won or loose
-		if (abs(stats["duality"]) > 10):
+		if _current_win(stats):
 			get_tree().change_scene("res://Scenes/Lose.tscn")
 		else:
 			get_tree().change_scene("res://Scenes/Win.tscn")
 	next_phase()
+
+
+func _current_win(stats):
+	if stats["industry_perc"] > 75:
+		return false
+
+	if stats["industry_perc"] < 25:
+		return false
+
+	if stats["wilderness_perc"] > 75:
+		return false
+
+	if stats["wilderness_perc"] < 25:
+		return false
+
+	var perc_point_diff = stats["wilderness_perc"] - stats["industry_perc"]
+
+	if perc_point_diff > 25:
+		return false
+	
+	return true
 
 func calculation_end_phase():
 	is_in_phase = true

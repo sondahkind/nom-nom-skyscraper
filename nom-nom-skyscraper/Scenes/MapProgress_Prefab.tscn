@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Textures/progressbar_industry.tres" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/progressbar_neutral.tres" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/progressbar_nature.tres" type="Texture" id=3]
 [ext_resource path="res://Scripts/UI_MapProgress.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Textures/border_pixel.png" type="Texture" id=5]
 
 [node name="MapProgress" type="CanvasLayer"]
 layer = 2
 script = ExtResource( 4 )
+
+[node name="BorderPixel" type="Sprite" parent="."]
+position = Vector2( 960.5, 55 )
+scale = Vector2( 524, 60 )
+texture = ExtResource( 5 )
 
 [node name="IndustrialProgress" type="TextureProgress" parent="."]
 anchor_left = 0.5
